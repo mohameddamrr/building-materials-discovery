@@ -5,9 +5,9 @@ import { productImages } from "./productImages";
 
 export function ProductCard({ product }: { product: Product }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200/80 transition hover:-translate-y-1 hover:shadow-xl">
+    <article className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200/80 motion-safe:transition-transform motion-safe:hover:-translate-y-1 hover:shadow-xl">
       <div className="relative h-44 overflow-hidden bg-slate-900">
-        <img alt="" aria-hidden="true" className="size-full object-cover opacity-85 transition duration-500 group-hover:scale-105" src={productImages[product.slug]} />
+        <img alt="" aria-hidden="true" className="size-full object-cover opacity-85 motion-safe:transition motion-safe:duration-500 motion-safe:group-hover:scale-105" src={productImages[product.slug]} />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
         <p className="absolute bottom-4 left-5 text-xs font-bold uppercase tracking-[0.16em] text-amber-300">{categoryLabels[product.category]}</p>
       </div>

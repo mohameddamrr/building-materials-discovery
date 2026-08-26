@@ -2,7 +2,7 @@
 
 ## Document status
 
-- Current phase: Phase 6 — Additional curated scenarios
+- Current phase: Phase 7 - Accessibility, responsiveness, and edge cases
 - Phase status: Completed
 - Last updated: 2026-08-26
 - Working title: Material Pathways (placeholder; not approved branding)
@@ -45,16 +45,16 @@ The prototype demonstrates this hypothesis; it will not prove it without user re
 
 | Requirement | Priority | Planned evidence | Status |
 | --- | --- | --- | --- |
-| Product list | P0 | Responsive catalogue cards from the API | Not started |
-| Search | P0 | Server-side search over documented fields | Not started |
-| Filters | P0 | Category and performance-need filters | Not started |
-| Product details | P0 | Detail route addressed by product slug | Not started |
-| Responsive design | P0 | Deliberate mobile, tablet, and desktop layouts | Not started |
-| Accessibility | P0 | Semantic controls, keyboard operation, focus visibility | Not started |
-| Loading states | P0 | Products and recommendations loading feedback | Not started |
-| Empty states | P0 | No-match explanation and clear-filters recovery | Not started |
-| Error states | P0 | Retry/recovery UI and API error responses | Not started |
-| Invalid-input handling | P0 | Validated API queries and recoverable invalid routes | Not started |
+| Product list | P0 | Responsive catalogue cards from the API | Completed |
+| Search | P0 | Server-side search over documented fields | Completed |
+| Filters | P0 | Category and performance-need filters | Completed |
+| Product details | P0 | Detail route addressed by product slug | Completed |
+| Responsive design | P0 | Deliberate mobile, tablet, and desktop layouts | Completed |
+| Accessibility | P0 | Semantic controls, keyboard operation, focus visibility | Completed |
+| Loading states | P0 | Products and recommendations loading feedback | Completed |
+| Empty states | P0 | No-match explanation and clear-filters recovery | Completed |
+| Error states | P0 | Retry/recovery UI and API error responses | Completed |
+| Invalid-input handling | P0 | Validated API queries and recoverable invalid routes | Completed |
 
 ## 6. MVP scope
 
@@ -319,7 +319,7 @@ The project will not optimize for an arbitrary coverage percentage.
 | 4. Guided discovery foundation | Discovery choices, scenarios, deterministic recommendation API | Completed |
 | 5. Construction understanding experience | One polished accessible wall solution and product path, strengthened with licensed context/material photos and an interactive cutaway | Completed |
 | 6. Additional curated scenarios | Reuse architecture for three complete scenarios and dependent room/problem discovery | Completed |
-| 7. Accessibility, responsiveness, edge cases | Deliberate QA and recovery pass | Not started |
+| 7. Accessibility, responsiveness, edge cases | Deliberate QA and recovery pass | Completed |
 | 8. Tests and technical review | Typecheck, lint, tests, builds, focused fixes | Not started |
 | 9. Documentation and submission polish | Complete README, sources, plan, screenshots, final checks | Not started |
 

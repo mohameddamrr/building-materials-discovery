@@ -37,11 +37,20 @@ export function DiscoverPage() {
   const [need, setNeed] = useState<UserNeed | null>(null);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "loading" | "unsupported" | "error">("idle");
   const requestController = useRef<AbortController | null>(null);
+  const stepHeadingRef = useRef<HTMLHeadingElement>(null);
+  const previousStep = useRef(step);
   const availableRooms = [...new Set(scenarios.map((scenario) => scenario.room))];
   const availableScenarios = room ? scenarios.filter((scenario) => scenario.room === room) : [];
   const selectedScenario = availableScenarios.find((scenario) => scenario.need === need);
 
   useEffect(() => () => requestController.current?.abort(), []);
+
+  useEffect(() => {
+    if (previousStep.current !== step) {
+      stepHeadingRef.current?.focus();
+      previousStep.current = step;
+    }
+  }, [step]);
 
   function selectRoom(value: Room) {
     if (submitStatus === "loading") return;
@@ -93,6 +102,14 @@ export function DiscoverPage() {
       <div className="mt-5 flex gap-4"><button type="button" onClick={retry} className="rounded-sm bg-slate-950 px-4 py-2 font-semibold text-white">Try again</button><Link to="/products" className="py-2 font-semibold underline">Browse products</Link></div>
     </section>
   );
+  if (scenarios.length === 0) return (
+    <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm" role="status">
+      <p className="text-sm font-bold uppercase tracking-[0.18em] text-amber-700">Guided discovery</p>
+      <h1 className="mt-3 text-3xl font-bold text-slate-950">No guided examples are available.</h1>
+      <p className="mt-3 max-w-xl leading-7 text-slate-600">The catalogue is still available while the guided examples are reloaded.</p>
+      <div className="mt-6 flex flex-wrap gap-4"><button className="rounded-full bg-slate-950 px-5 py-2.5 font-semibold text-white" onClick={retry} type="button">Try again</button><Link className="py-2.5 font-semibold underline underline-offset-4" to="/products">Browse products</Link></div>
+    </section>
+  );
 
   return (
     <section>
@@ -105,11 +122,11 @@ export function DiscoverPage() {
       </div>
 
       <form aria-busy={submitStatus === "loading"} className="mt-10" onSubmit={handleSubmit}>
-        <div className="mb-8 grid gap-3 rounded-2xl bg-white p-3 shadow-sm sm:grid-cols-4" aria-label="Discovery progress">
-          {[{ item: 1, label: "Element" }, { item: 2, label: "Location" }, { item: 3, label: "Space" }, { item: 4, label: "Goal" }].map(({ item, label }) => <div className={`flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-bold ${item === step ? "bg-amber-400 text-slate-950" : item < step ? "bg-slate-100 text-slate-700" : "text-slate-400"}`} key={item}><span className={`flex size-7 items-center justify-center rounded-full text-xs ${item === step ? "bg-slate-950 text-white" : "bg-slate-200 text-slate-600"}`}>{item}</span>{label}</div>)}
-        </div>
+        <ol className="mb-8 grid gap-3 rounded-2xl bg-white p-3 shadow-sm sm:grid-cols-4" aria-label="Discovery progress">
+          {[{ item: 1, label: "Element" }, { item: 2, label: "Location" }, { item: 3, label: "Space" }, { item: 4, label: "Goal" }].map(({ item, label }) => <li aria-current={item === step ? "step" : undefined} className={`flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-bold ${item === step ? "bg-amber-400 text-slate-950" : item < step ? "bg-slate-100 text-slate-700" : "text-slate-400"}`} key={item}><span className={`flex size-7 items-center justify-center rounded-full text-xs ${item === step ? "bg-slate-950 text-white" : "bg-slate-200 text-slate-600"}`}>{item}</span>{label}</li>)}
+        </ol>
         {step === 1 && <section aria-labelledby="element-choice-heading">
-          <div className="flex flex-wrap items-end justify-between gap-3"><div><p className="text-sm font-bold uppercase tracking-[0.18em] text-amber-700">Your project</p><h2 className="mt-2 text-3xl font-bold text-slate-950" id="element-choice-heading">What are you working on?</h2></div><p className="max-w-xs text-sm leading-6 text-slate-600">Choose an available element to begin.</p></div>
+          <div className="flex flex-wrap items-end justify-between gap-3"><div><p className="text-sm font-bold uppercase tracking-[0.18em] text-amber-700">Your project</p><h2 className="mt-2 text-3xl font-bold text-slate-950" id="element-choice-heading" ref={stepHeadingRef} tabIndex={-1}>What are you working on?</h2></div><p className="max-w-xs text-sm leading-6 text-slate-600">Choose an available element to begin.</p></div>
           <div className="mt-6 grid gap-4 sm:grid-cols-2" role="group" aria-labelledby="element-choice-heading">
             {elementChoices.map((choice) => {
               const selected = element === choice.id;
@@ -127,11 +144,11 @@ export function DiscoverPage() {
 
         {element === "wall" && step === 2 && (
         <section aria-labelledby="position-choice-heading" className="mt-4">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-amber-700">Wall type</p><h2 className="mt-2 text-3xl font-bold text-slate-950" id="position-choice-heading">Where is the wall?</h2>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-amber-700">Wall type</p><h2 className="mt-2 text-3xl font-bold text-slate-950" id="position-choice-heading" ref={stepHeadingRef} tabIndex={-1}>Where is the wall?</h2>
             <div className="mt-6 grid gap-4 sm:grid-cols-2" role="group" aria-labelledby="position-choice-heading">
               {([{ id: "interior", label: "Interior", description: "A wall between rooms or spaces", available: true, image: "/images/generated/interior-wall-choice-v2.jpg" }, { id: "exterior", label: "Exterior", description: "A wall exposed to outdoor conditions", available: false, image: "/images/generated/exterior-wall-choice-v2.jpg" }] as const).map((choice) => {
                 const selected = position === choice.id;
-                return <button aria-pressed={selected} className={`group relative min-h-60 overflow-hidden rounded-2xl border-2 text-left text-white shadow-lg outline-offset-4 motion-safe:transition-transform motion-safe:hover:-translate-y-1 focus-visible:outline-4 focus-visible:outline-amber-500 ${selected ? "border-amber-400" : "border-transparent hover:border-amber-300"}`} disabled={!choice.available || submitStatus === "loading"} key={choice.id} onClick={() => selectPosition(choice.id)} type="button"><img alt="" aria-hidden="true" className="absolute inset-0 size-full object-cover transition duration-500 group-hover:scale-105" src={choice.image} /><span className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/45 to-slate-950/10" /><span className="absolute inset-x-0 bottom-0 p-5"><span className="block text-2xl font-bold">{choice.label}</span><span className="mt-1 block text-sm leading-6 text-slate-200">{choice.description}</span></span><span className={`absolute right-4 top-4 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wide ${choice.available ? (selected ? "bg-amber-400 text-slate-950" : "bg-white text-slate-950") : "bg-slate-950/80 text-white"}`}>{choice.available ? (selected ? "Selected" : "Available") : "Coming soon"}</span></button>;
+                return <button aria-pressed={selected} className={`group relative min-h-60 overflow-hidden rounded-2xl border-2 text-left text-white shadow-lg outline-offset-4 motion-safe:transition-transform motion-safe:hover:-translate-y-1 focus-visible:outline-4 focus-visible:outline-amber-500 ${selected ? "border-amber-400" : "border-transparent hover:border-amber-300"}`} disabled={!choice.available || submitStatus === "loading"} key={choice.id} onClick={() => selectPosition(choice.id)} type="button"><img alt="" aria-hidden="true" className="absolute inset-0 size-full object-cover motion-safe:transition motion-safe:duration-500 motion-safe:group-hover:scale-105" src={choice.image} /><span className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/45 to-slate-950/10" /><span className="absolute inset-x-0 bottom-0 p-5"><span className="block text-2xl font-bold">{choice.label}</span><span className="mt-1 block text-sm leading-6 text-slate-200">{choice.description}</span></span><span className={`absolute right-4 top-4 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wide ${choice.available ? (selected ? "bg-amber-400 text-slate-950" : "bg-white text-slate-950") : "bg-slate-950/80 text-white"}`}>{choice.available ? (selected ? "Selected" : "Available") : "Coming soon"}</span></button>;
               })}
             </div>
             <button className="mt-6 font-semibold text-slate-600 underline underline-offset-4 disabled:cursor-not-allowed disabled:text-slate-400" disabled={submitStatus === "loading"} onClick={() => setStep(1)} type="button">← Back to building elements</button>
@@ -140,7 +157,7 @@ export function DiscoverPage() {
 
         {position === "interior" && step === 3 && (
         <section aria-labelledby="room-choice-heading" className="mt-4">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-amber-700">Your space</p><h2 className="mt-2 text-3xl font-bold text-slate-950" id="room-choice-heading">Which space is it?</h2>
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-amber-700">Your space</p><h2 className="mt-2 text-3xl font-bold text-slate-950" id="room-choice-heading" ref={stepHeadingRef} tabIndex={-1}>Which space is it?</h2>
           <div className="mt-5 grid gap-5 sm:grid-cols-2" role="group" aria-labelledby="room-choice-heading">
             {availableRooms.map((value) => {
               const selected = room === value;
@@ -166,7 +183,7 @@ export function DiscoverPage() {
 
         {position === "interior" && room && step === 4 && (
           <section aria-labelledby="problem-choice-heading" className="mt-4">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-amber-700">Your goal</p><h2 aria-label="4. What would you like to improve?" className="mt-2 text-3xl font-bold text-slate-950" id="problem-choice-heading">What would you like to improve?</h2>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-amber-700">Your goal</p><h2 aria-label="4. What would you like to improve?" className="mt-2 text-3xl font-bold text-slate-950" id="problem-choice-heading" ref={stepHeadingRef} tabIndex={-1}>What would you like to improve?</h2>
             <p className="mt-2 text-slate-600">Available for {roomLabels[room]}.</p>
             <div className="mt-5 grid gap-5 md:grid-cols-2" role="group" aria-labelledby="problem-choice-heading">
               {availableScenarios.map((scenario) => {
@@ -186,7 +203,7 @@ export function DiscoverPage() {
         )}
 
         <div className="mt-8 flex flex-wrap items-center gap-4">
-          {step === 4 && <button aria-label={submitStatus === "loading" ? "Opening your solution..." : "Show my wall solution"} className="rounded-full bg-amber-400 px-6 py-3.5 font-bold text-slate-950 shadow-lg shadow-amber-500/20 transition hover:-translate-y-0.5 hover:bg-amber-300 disabled:cursor-not-allowed disabled:bg-slate-400" disabled={element !== "wall" || position !== "interior" || !room || !need || submitStatus === "loading"} type="submit">{submitStatus === "loading" ? "Opening your solution..." : "Show my wall solution →"}</button>}
+          {step === 4 && <button aria-label={submitStatus === "loading" ? "Opening your solution..." : "Show my wall solution"} className="rounded-full bg-amber-400 px-6 py-3.5 font-bold text-slate-950 shadow-lg shadow-amber-500/20 motion-safe:transition-transform motion-safe:hover:-translate-y-0.5 hover:bg-amber-300 disabled:cursor-not-allowed disabled:bg-slate-400" disabled={element !== "wall" || position !== "interior" || !room || !need || submitStatus === "loading"} type="submit">{submitStatus === "loading" ? "Opening your solution..." : "Show my wall solution →"}</button>}
           <Link className="font-semibold text-amber-800 underline underline-offset-4" to="/products">Browse all products instead</Link>
         </div>
         {step === 4 && (!room || !need) ? <p className="mt-3 text-sm text-slate-500">Choose a problem to continue.</p> : null}

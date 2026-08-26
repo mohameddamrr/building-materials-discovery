@@ -12,7 +12,7 @@ export function HomePage() {
             <h1 className="mt-5 max-w-3xl text-5xl font-bold leading-[1.02] tracking-tight sm:text-7xl" id="home-heading">Find the right material for the space you are building.</h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">Start with a real-world need, understand the system behind it, then explore the products that bring it together.</p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Link className="rounded-full bg-amber-400 px-6 py-3.5 font-bold text-[#101820] transition-transform hover:-translate-y-0.5 hover:bg-amber-300" to="/discover">Find a solution <span aria-hidden="true">→</span></Link>
+              <Link className="rounded-full bg-amber-400 px-6 py-3.5 font-bold text-[#101820] motion-safe:transition-transform motion-safe:hover:-translate-y-0.5 hover:bg-amber-300" to="/discover">Find a solution <span aria-hidden="true">→</span></Link>
               <Link className="rounded-full border border-white/40 bg-white/10 px-6 py-3.5 font-bold text-white backdrop-blur hover:bg-white/20" to="/products">Browse products</Link>
             </div>
           </div>
@@ -42,7 +42,7 @@ export function HomePage() {
       <section className="bg-[#101820] px-5 py-14 text-white sm:px-8 sm:py-16">
         <div className="mx-auto flex max-w-7xl flex-wrap items-end justify-between gap-6">
           <div><p className="text-sm font-bold uppercase tracking-[0.22em] text-amber-300">Ready to explore?</p><h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Find a wall solution in a few clear steps.</h2></div>
-          <Link className="rounded-full bg-amber-400 px-6 py-3.5 font-bold text-slate-950 transition hover:-translate-y-0.5 hover:bg-amber-300" to="/discover">Start exploring <span aria-hidden="true">→</span></Link>
+          <Link className="rounded-full bg-amber-400 px-6 py-3.5 font-bold text-slate-950 motion-safe:transition-transform motion-safe:hover:-translate-y-0.5 hover:bg-amber-300" to="/discover">Start exploring <span aria-hidden="true">→</span></Link>
         </div>
       </section>
     </section>

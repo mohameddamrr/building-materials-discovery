@@ -32,8 +32,8 @@ export function ProductFilters({
 
   return (
     <form aria-label="Search and filter products" className="rounded-2xl border border-slate-200 bg-white p-4 shadow-xl shadow-slate-900/5 sm:p-5" onSubmit={handleSubmit} role="search">
-      <div className="grid gap-4 lg:grid-cols-[minmax(0,1.5fr)_1fr_1fr_auto] lg:items-end">
-        <div>
+      <div className="grid min-w-0 gap-4 lg:grid-cols-[minmax(0,1.5fr)_1fr_1fr_auto] lg:items-end">
+        <div className="min-w-0">
           <label className="block text-sm font-semibold text-slate-800" htmlFor="product-search">
             Search products
           </label>
@@ -48,7 +48,7 @@ export function ProductFilters({
               type="search"
               value={searchValue}
             />
-            <button className="min-h-11 rounded-xl bg-amber-400 px-4 py-2 font-bold text-slate-950 hover:bg-amber-300" type="submit">
+            <button className="min-h-11 shrink-0 rounded-xl bg-amber-400 px-4 py-2 font-bold text-slate-950 hover:bg-amber-300" type="submit">
               Search
             </button>
           </div>

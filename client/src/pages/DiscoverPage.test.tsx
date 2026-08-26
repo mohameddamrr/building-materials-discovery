@@ -43,9 +43,12 @@ describe("DiscoverPage", () => {
     expect(screen.queryByRole("button", { name: "Show my wall solution" })).not.toBeInTheDocument();
 
     await user.click(wall);
+    expect(screen.getByRole("heading", { name: "Where is the wall?" })).toHaveFocus();
     await user.click(screen.getByRole("button", { name: /Interior.*Available/ }));
+    expect(screen.getByRole("heading", { name: "Which space is it?" })).toHaveFocus();
     const bedroom = await screen.findByRole("button", { name: /Bedroom.*2 problems/ });
     await user.click(bedroom);
+    expect(screen.getByRole("heading", { name: /What would you like to improve/ })).toHaveFocus();
     expect(screen.getByRole("button", { name: /Reduce noise between spaces/ })).toBeInTheDocument();
     await user.click(screen.getByRole("button", { name: /Improve thermal comfort/ }));
     await user.click(screen.getByRole("button", { name: "Show my wall solution" }));
@@ -131,6 +134,15 @@ describe("DiscoverPage", () => {
     renderPage();
 
     expect(await screen.findByRole("alert")).toHaveTextContent("We couldn't load the guided choices");
+    expect(screen.getByRole("link", { name: "Browse products" })).toHaveAttribute("href", "/products");
+  });
+
+  it("shows recovery when guided choices are empty", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(response({ scenarios: [], total: 0 })));
+    renderPage();
+
+    expect(await screen.findByRole("heading", { name: "No guided examples are available." })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Try again" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Browse products" })).toHaveAttribute("href", "/products");
   });
 });
