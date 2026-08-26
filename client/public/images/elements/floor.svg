@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="title desc">
+  <title id="title">Layered floor illustration</title><desc id="desc">A simple illustration showing floor finish, underlay, structure and insulation.</desc>
+  <rect width="800" height="420" fill="#edf1f3"/><path d="M100 105h600" stroke="#b45309" stroke-width="38"/><path d="M100 170h600" stroke="#fbbf24" stroke-width="30"/><path d="M100 235h600" stroke="#64748b" stroke-width="44"/><path d="M100 310h600" stroke="#a16207" stroke-width="58" stroke-dasharray="18 14"/><path d="M100 370h600" stroke="#334155" stroke-width="24"/><text x="400" y="55" fill="#0f172a" font-family="Arial" font-size="24" font-weight="700" text-anchor="middle">FLOOR BUILD-UP</text><text x="112" y="98" fill="#334155" font-family="Arial" font-size="18" font-weight="700">FINISH</text>
+</svg>

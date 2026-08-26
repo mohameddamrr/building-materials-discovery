@@ -5,7 +5,7 @@ import { app } from "../src/app.js";
 describe("guided scenario API", () => {
   it("lists supported scenario summaries without result details", async () => {
     const response = await request(app).get("/api/scenarios").expect(200);
-    expect(response.body.total).toBe(2);
+    expect(response.body.total).toBe(3);
     expect(response.body.scenarios[0]).not.toHaveProperty("layers");
     expect(response.body.scenarios[0]).not.toHaveProperty("recommendations");
   });
@@ -22,6 +22,14 @@ describe("guided scenario API", () => {
       .get("/api/recommendations?room=bedroom&need=reduce-noise")
       .expect(200);
     expect(recommended.body).toEqual(bySlug.body);
+  });
+
+  it("returns the thermal-comfort recommendation for the supported bedroom selection", async () => {
+    const response = await request(app)
+      .get("/api/recommendations?room=bedroom&need=improve-thermal-comfort")
+      .expect(200);
+    expect(response.body.scenario.slug).toBe("bedroom-thermal-comfort-interior-wall");
+    expect(response.body.scenario.recommendations[0].product.slug).toBe("thermal-cavity-insulation");
   });
 
   it.each([
@@ -49,4 +57,3 @@ describe("guided scenario API", () => {
     expect(response.body.error.code).toBe("SCENARIO_NOT_FOUND");
   });
 });
-

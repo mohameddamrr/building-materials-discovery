@@ -24,10 +24,17 @@ describe("recommendation service", () => {
     expect(result?.recommendations[0].reason).toContain("bathroom-facing layer");
   });
 
+  it("matches and hydrates the thermal-comfort scenario", () => {
+    const result = getRecommendation("bedroom", "improve-thermal-comfort");
+
+    expect(result?.slug).toBe("bedroom-thermal-comfort-interior-wall");
+    expect(result?.layers[1].products[0].slug).toBe("thermal-cavity-insulation");
+    expect(result?.recommendations[0].reason).toContain("cooler or differently conditioned");
+  });
+
   it("fails clearly when curated scenario data references a missing product", () => {
     const scenario = findScenarioBySlug("bedroom-quieter-interior-wall");
     expect(scenario).toBeDefined();
     expect(() => resolveScenario(scenario!, findAllProducts().slice(1))).toThrow(/references missing product/);
   });
 });
-

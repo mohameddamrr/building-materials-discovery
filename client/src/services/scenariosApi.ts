@@ -9,9 +9,9 @@ export async function getScenarioSummaries(signal?: AbortSignal): Promise<Scenar
   return data.scenarios as ScenarioSummary[];
 }
 
-export async function getRecommendation(room: string, need: string): Promise<ResolvedScenario> {
+export async function getRecommendation(room: string, need: string, signal?: AbortSignal): Promise<ResolvedScenario> {
   const query = new URLSearchParams({ room, need });
-  return requestScenario(`/api/recommendations?${query.toString()}`);
+  return requestScenario(`/api/recommendations?${query.toString()}`, signal);
 }
 
 export async function getScenario(slug: string, signal?: AbortSignal): Promise<ResolvedScenario> {
@@ -47,4 +47,3 @@ function isResolvedScenario(value: unknown): value is ResolvedScenario {
     typeof value.room === "string" && typeof value.need === "string" && value.element === "interior-wall" &&
     Array.isArray(value.layers) && Array.isArray(value.performancePriorities) && Array.isArray(value.recommendations);
 }
-

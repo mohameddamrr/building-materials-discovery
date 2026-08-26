@@ -8,7 +8,7 @@ const navigationItems = [
 
 export function AppLayout() {
   return (
-    <div className="flex min-h-screen flex-col bg-stone-50 text-slate-900">
+    <div className="flex min-h-screen flex-col bg-[#f4f1eb] text-slate-950">
       <a
         className="fixed left-4 top-4 z-50 -translate-y-24 rounded-sm bg-slate-950 px-4 py-2 text-sm font-semibold text-white transition-transform focus:translate-y-0"
         href="#main-content"
@@ -16,10 +16,11 @@ export function AppLayout() {
         Skip to main content
       </a>
 
-      <header className="border-b border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-5 sm:px-8">
-          <NavLink className="text-lg font-bold tracking-tight text-slate-950" to="/">
-            Material Pathways
+      <header className="sticky top-0 z-40 border-b border-white/10 bg-[#101820] text-white shadow-lg shadow-slate-950/5">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-4 sm:px-8">
+          <NavLink className="group flex items-center gap-3" to="/">
+            <span className="flex size-9 items-center justify-center bg-amber-400 text-sm font-black text-[#101820] transition-transform group-hover:rotate-6">MP</span>
+            <span className="text-lg font-bold tracking-tight">Material Pathways</span>
           </NavLink>
           <nav aria-label="Primary navigation">
             <ul className="flex flex-wrap gap-1">
@@ -27,10 +28,10 @@ export function AppLayout() {
                 <li key={item.to}>
                   <NavLink
                     className={({ isActive }) =>
-                      `inline-flex rounded-sm px-3 py-2 text-sm font-semibold transition-colors ${
+                      `inline-flex rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
                         isActive
-                          ? "bg-amber-100 text-slate-950"
-                          : "text-slate-600 hover:bg-slate-100 hover:text-slate-950"
+                          ? "bg-amber-400 text-[#101820]"
+                          : "text-slate-300 hover:bg-white/10 hover:text-white"
                       }`
                     }
                     end={item.end}
@@ -40,18 +41,19 @@ export function AppLayout() {
                   </NavLink>
                 </li>
               ))}
+              <li><a className="inline-flex rounded-full px-4 py-2 text-sm font-semibold text-slate-300 transition-colors hover:bg-white/10 hover:text-white" href="/#about">About</a></li>
             </ul>
           </nav>
         </div>
       </header>
 
-      <main className="mx-auto w-full max-w-6xl flex-1 px-5 py-12 sm:px-8 sm:py-16" id="main-content">
+      <main className="mx-auto w-full max-w-7xl flex-1 px-5 py-10 sm:px-8 sm:py-14" id="main-content">
         <Outlet />
       </main>
 
-      <footer className="border-t border-slate-200 bg-white">
-        <div className="mx-auto max-w-6xl px-5 py-6 text-sm text-slate-600 sm:px-8">
-          A focused prototype for exploring interior-wall materials.
+      <footer className="border-t border-slate-800 bg-[#101820] text-slate-300">
+        <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-3 px-5 py-8 text-sm sm:px-8">
+          <span>Material Pathways</span><span>A focused prototype for exploring better building systems.</span>
         </div>
       </footer>
     </div>

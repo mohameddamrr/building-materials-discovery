@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="title desc">
+  <title id="title">Ceiling framing illustration</title><desc id="desc">A simple illustration showing ceiling boards, metal framing and insulation above.</desc>
+  <rect width="800" height="420" fill="#eef2f4"/><rect x="80" y="85" width="640" height="48" rx="8" fill="#d6d3d1" stroke="#57534e" stroke-width="6"/><path d="M105 155h590M105 215h590M105 275h590" stroke="#a16207" stroke-width="34" stroke-dasharray="12 18"/><path d="M120 145v170M280 145v170M440 145v170M600 145v170" stroke="#475569" stroke-width="16"/><rect x="80" y="325" width="640" height="38" fill="#fef3c7" stroke="#b45309" stroke-width="5"/><text x="400" y="52" fill="#0f172a" font-family="Arial" font-size="24" font-weight="700" text-anchor="middle">CEILING BUILD-UP</text>
+</svg>

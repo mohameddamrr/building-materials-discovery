@@ -98,6 +98,55 @@
       { "productId": "prod-standard-board", "reason": "Recommended as the adjoining-room face; its final suitability depends on that room's conditions." },
       { "productId": "prod-joint-compound", "reason": "Included to connect the main wall layers with the board-joint finishing stage." }
     ]
+  },
+  {
+    "id": "scenario-bedroom-thermal-comfort",
+    "slug": "bedroom-thermal-comfort-interior-wall",
+    "room": "bedroom",
+    "element": "interior-wall",
+    "need": "improve-thermal-comfort",
+    "title": "A thermal-comfort bedroom interior wall",
+    "summary": "Explore a simplified wall concept for a bedroom beside a cooler or differently conditioned adjoining space, where resisting heat flow is the discovery priority.",
+    "performancePriorities": [
+      "Consider the temperature difference between adjoining spaces",
+      "Treat cavity insulation as one part of the complete wall concept",
+      "Confirm the final build-up against project-specific thermal and moisture requirements"
+    ],
+    "layers": [
+      {
+        "id": "bedroom-facing-board",
+        "name": "Bedroom-facing lining board",
+        "materialRole": "Forms the visible bedroom-side face",
+        "explanation": "This fictional general lining represents the visible bedroom surface in the simplified thermal-comfort concept.",
+        "productIds": ["prod-standard-board"]
+      },
+      {
+        "id": "thermal-cavity-insulation",
+        "name": "Thermal-focused cavity insulation",
+        "materialRole": "Occupies the space inside the frame",
+        "explanation": "This fictional infill represents an insulation layer considered when the adjoining space has different temperature conditions.",
+        "productIds": ["prod-thermal-insulation"]
+      },
+      {
+        "id": "metal-frame",
+        "name": "Metal framing",
+        "materialRole": "Organizes the wall faces and cavity",
+        "explanation": "Studs and tracks form the simplified framework and create the cavity represented in this concept.",
+        "productIds": ["prod-wall-stud", "prod-wall-track"]
+      },
+      {
+        "id": "opposite-side-board",
+        "name": "Opposite-side lining board",
+        "materialRole": "Closes the wall from the adjoining space",
+        "explanation": "A second general lining completes the concept; final selection depends on the conditions in the adjoining space.",
+        "productIds": ["prod-standard-board"]
+      }
+    ],
+    "recommendations": [
+      { "productId": "prod-thermal-insulation", "reason": "Recommended because this bedroom scenario considers a wall beside a cooler or differently conditioned adjoining space." },
+      { "productId": "prod-standard-board", "reason": "Recommended as a general lining for the two visible wall faces in this simplified concept." },
+      { "productId": "prod-wall-stud", "reason": "Recommended because the frame organizes the wall faces and creates the cavity shown in the concept." },
+      { "productId": "prod-wall-track", "reason": "Recommended with the studs as the horizontal framing boundary represented in the system overview." }
+    ]
   }
 ]
-

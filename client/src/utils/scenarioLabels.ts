@@ -6,7 +6,7 @@ export const roomLabels: Record<Room, string> = {
 };
 
 export const roomDescriptions: Record<Room, string> = {
-  bedroom: "Explore a quieter interior wall",
+  bedroom: "Explore comfort needs for a bedroom interior wall",
   bathroom: "Explore a wall for a moisture-prone space",
 };
 
@@ -19,4 +19,3 @@ export const userNeedLabels: Record<UserNeed, string> = {
 export const buildingElementLabels: Record<BuildingElement, string> = {
   "interior-wall": "Interior wall",
 };
-

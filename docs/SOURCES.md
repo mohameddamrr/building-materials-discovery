@@ -3,7 +3,7 @@
 ## Status
 
 - Last updated: 2026-08-26
-- Phase: Phase 2 — product data and backend foundation complete
+- Phase: Phase 6 — three curated guided scenarios complete
 - External research performed: Yes, limited research from authoritative public sources
 
 This document records sources actually consulted and explains how information is used. A source will not be listed merely to make the project appear researched.
@@ -28,7 +28,7 @@ The Phase 2 catalogue contains nine fictional products. All names, descriptions,
 | Item or range | Classification | Source | How used | Notes |
 | --- | --- | --- | --- | --- |
 | MVP catalogue (nine products) | Fictional | Not applicable | Catalogue, product details, and future deterministic scenarios | Original generic names and restrained wording; no manufacturer affiliation |
-| Bedroom noise and bathroom moisture scenarios | Fictional | General concepts limited to the educational sources below | Deterministic guided discovery and future wall-layer explanation | Original simplified wording; not certified assemblies or project specifications |
+| Bedroom noise, bathroom moisture, and bedroom thermal-comfort scenarios | Fictional | General concepts limited to the educational sources below | Deterministic guided discovery and wall-part explanations | Original simplified wording; not certified assemblies or project specifications |
 
 ## Educational/domain sources
 
@@ -36,18 +36,32 @@ The Phase 2 catalogue contains nine fictional products. All names, descriptions,
 | --- | --- | --- | --- | --- |
 | Basic interior-partition composition | “Drywall Systems - Partitions, Ceilings & Shafts,” Knauf Egypt | https://knauf.com/en-EG/systems/drywall-systems | 2026-08-24 | Confirms at a planning level that a simple interior wall can be explained as board layers on both sides of metal framing, with optional cavity insulation. No diagrams, product wording, specifications, or technical values will be copied. |
 | Joint-finishing roles | “Fill & Finish,” Knauf UK & Ireland | https://knauf.com/en-GB/p/product/fill-finish-11410_0306 | 2026-08-26 | Confirms only the general educational concept that jointing compound is used with tape when finishing plasterboard joints. Product claims, performance wording, and application instructions are not copied into the fictional catalogue. |
+| Heat flow and insulation principle | “Energy Renovations: Insulation — A Guide for Contractors to Share With Homeowners,” U.S. Department of Energy / Building America | https://www.energy.gov/sites/default/files/2023-03/insulation_guide_0.pdf | 2026-08-26 | Supports only the qualitative explanation that heat tends to move from a warmer space toward a cooler one and insulation resists heat flow. No R-values, calculations, savings, or assembly claims are copied. |
 | Keyboard accessibility | “Accessibility Principles,” W3C Web Accessibility Initiative | https://www.w3.org/WAI/fundamentals/accessibility-principles/ | 2026-08-24 | Supports the requirement that functionality available by pointer must also be operable through a keyboard, including the planned layer selector. |
 | Visible focus | “Understanding SC 2.4.7: Focus Visible,” W3C Web Accessibility Initiative | https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html | 2026-08-24 | Supports deliberate visible focus indicators for interactive controls. |
 
-These sources establish only the generic board/frame/optional-insulation composition and the basic role of compound and tape in joint finishing. All named products and descriptive wording remain simplified original prototype content. Any more specific factual claim introduced in later scenario copy must be verified and recorded before use.
+These sources establish only the generic board/frame/optional-insulation composition, the basic role of compound and tape in joint finishing, and the qualitative heat-flow principle used by the thermal-comfort scenario. All named products and descriptive wording remain simplified original prototype content. Any more specific factual claim must be verified and recorded before use.
 
 ## Visual assets
 
-The planned wall diagrams and interface graphics will be original repository-owned HTML/CSS/SVG. No external product photography, manufacturer diagrams, or protected visual assets are planned.
+The system diagram is original repository-owned SVG. Carefully selected real photographs help users recognize generic rooms and materials; they are not presented as images of the fictional catalogue products.
 
 | Asset | Origin/license | Notes |
 | --- | --- | --- |
-| Planned wall-layer visualization | Original project work | No external asset currently used |
+| Interactive wall-layer visualization | Original project SVG | Conceptual and not to scale; selection is controlled by accessible HTML buttons |
+| `metal-framing.jpg` | Matthew Noles / U.S. Navy, public domain | Source: https://commons.wikimedia.org/wiki/File:Metal_Framing_(9020041).jpg. Downloaded as a reduced-resolution 1280px-wide copy and used as representative metal-framing imagery. |
+| `glass-wool-insulation.jpg` | Typisch, CC BY-SA 3.0 | Source: https://commons.wikimedia.org/wiki/File:Glaswolle.JPG. Downloaded as a reduced-resolution 1280 x 923 copy and used as representative generic insulation imagery. License: https://creativecommons.org/licenses/by-sa/3.0/ |
+| `gypsum-board-wall.jpg` | KeepOnTruckin, CC BY-SA 3.0 | Source: https://commons.wikimedia.org/wiki/File:Drywall_material_handler.jpg. The 889 x 657 original is used as a representative view of generic drywall sheets; it does not depict a fictional catalogue product. License: https://creativecommons.org/licenses/by-sa/3.0/ |
+| `drywall-tools.jpg` | Timothyjosephwood, CC BY-SA 4.0 | Source: https://commons.wikimedia.org/wiki/File:Drywall_and_tools.jpg. Used as a distinct representative board/material-preparation image. License: https://creativecommons.org/licenses/by-sa/4.0/ |
+| `gypsum-wall-detail.jpg` | Sambach, CC BY-SA 2.5 | Source: https://commons.wikimedia.org/wiki/File:Gypsum_wall.jpg. Used as a distinct representative partially finished wall image. License: https://creativecommons.org/licenses/by-sa/2.5/ |
+| `joint-finishing.jpg` | MTA Capital Construction Mega Projects, CC BY 2.0 | Source: https://commons.wikimedia.org/wiki/File:Taping_gypsum_board_seams_in_back_of_house_rooms_in_the_new_LIRR_passenger_concourse_in_preparation_for_painting_and_final_finishes._4-17-19_(47645209441).jpg. A reduced-resolution 1280 x 960 copy shows generic seam treatment. License: https://creativecommons.org/licenses/by/2.0/ |
+| `bedroom-context.jpg` | Get Lost Mike, Pexels License | Source: https://www.pexels.com/photo/a-bedroom-with-a-bathroom-10450054/. Downloaded as a compressed 1125 x 750 copy and used only to identify the bedroom discovery context. |
+| `bathroom-context.jpg` | Max Vakhtbovych, Pexels License | Source: https://www.pexels.com/photo/bathroom-interior-8092396/. Downloaded as a compressed 1124 x 750 copy and used only to identify the bathroom discovery context. |
+| `roof-construction.jpg` | Unsplash License | Source image: https://images.unsplash.com/photo-1625600103040-09090621f75b. Downloaded locally and used as representative roof-framing imagery. |
+| `ceiling-construction.jpg` | Unsplash License | Source image: https://images.unsplash.com/photo-1504307651254-35680f356dfd. Downloaded locally and used as representative unfinished-building imagery for the ceiling option. |
+| `floor-construction.jpg` | Samuel Cruz, Unsplash License | Source: https://unsplash.com/photos/a-room-with-a-wood-floor-and-a-bench-17nDFVkBYK0. Downloaded locally and used as representative floor/framing imagery. |
+
+Pexels permits its photos to be used in websites and applications and permits modification. License reviewed 2026-08-26: https://www.pexels.com/license/.
 
 If an external asset is later proposed, its source, author, license, modifications, and exact use must be documented before inclusion.
 

@@ -2,7 +2,7 @@
 
 ## Document status
 
-- Current phase: Phase 5 — Construction understanding experience
+- Current phase: Phase 6 — Additional curated scenarios
 - Phase status: Completed
 - Last updated: 2026-08-26
 - Working title: Material Pathways (placeholder; not approved branding)
@@ -61,8 +61,7 @@ The prototype demonstrates this hypothesis; it will not prove it without user re
 - 8–12 fictional, curated products across approximately four categories: boards, insulation, framing, and finishing.
 - One supported building element: interior walls.
 - Two spaces: bedroom and bathroom.
-- Two complete guided scenarios first: bedroom noise reduction and bathroom moisture management.
-- A third bedroom thermal-comfort scenario only after the first two are complete and reusable.
+- Three complete guided scenarios: bedroom noise reduction, bathroom moisture management, and bedroom thermal comfort beside a cooler or differently conditioned space.
 - Two complementary paths: direct product catalogue and guided solution discovery.
 - An accessible, simplified wall-layer visualization made with repository-owned HTML/CSS/SVG.
 - Deterministic recommendations with stored, scenario-specific reasons.
@@ -91,16 +90,18 @@ Home or Products
 ```text
 Home
     → Find a solution
-    → choose Bedroom or Bathroom
-    → choose a supported plain-language need
+    → choose a room
+    → view problems supported for that room
+    → choose a problem
+    → explicitly request the solution
     → view a simplified interior-wall solution
-    → inspect layers with pointer or keyboard
+    → inspect photographed system parts with pointer or keyboard
     → understand performance priorities
     → review products and recommendation reasons
     → open product details
 ```
 
-The UI will not ask users to select a building element because interior walls are the only MVP option. The data will retain that field so future elements can be represented without pretending they exist today.
+Discovery now asks for the building element first, then its interior/exterior position, then the room and supported problem. Each decision is a focused step screen with progress and a Back action, rather than appending every question to one long page. Wall → Interior is the currently curated path; roof, ceiling, floor, and exterior options are visible as coming-soon choices until their scenarios are properly reviewed. The choices use animated, image-led selectable buttons with `aria-pressed`, visible selected labels, keyboard-native activation, and reduced-motion-safe hover movement. An explicit submit action lets users review all choices before requesting the deterministic recommendation. The data retains room, need, and element fields so future combinations can be added without changing the recommendation architecture.
 
 ## 9. Screens/pages
 
@@ -316,8 +317,8 @@ The project will not optimize for an arbitrary coverage percentage.
 | 2. Data model and backend foundation | Types, JSON, repository/service/controller/routes, validation, API tests | Completed |
 | 3. Product catalogue UI | List, search, filters, cards, details, and intentional states | Completed |
 | 4. Guided discovery foundation | Discovery choices, scenarios, deterministic recommendation API | Completed |
-| 5. Construction understanding experience | One polished accessible wall solution and product path | Completed |
-| 6. Additional curated scenarios | Reuse architecture for approximately 2–3 complete scenarios | Not started |
+| 5. Construction understanding experience | One polished accessible wall solution and product path, strengthened with licensed context/material photos and an interactive cutaway | Completed |
+| 6. Additional curated scenarios | Reuse architecture for three complete scenarios and dependent room/problem discovery | Completed |
 | 7. Accessibility, responsiveness, edge cases | Deliberate QA and recovery pass | Not started |
 | 8. Tests and technical review | Typecheck, lint, tests, builds, focused fixes | Not started |
 | 9. Documentation and submission polish | Complete README, sources, plan, screenshots, final checks | Not started |
@@ -344,7 +345,9 @@ Every phase has an approval gate. Checks, Git status, diff summary, review findi
 
 Future possibilities, explicitly outside the MVP, include additional building elements and rooms, richer comparison, real manufacturer data under a reviewed content/license strategy, localization, analytics-backed usability research, persistent product management, and a database when real write/query requirements exist.
 
-Phase 9 submission polish should revisit original lightweight SVG/CSS category visuals for product cards and details. These should communicate boards, insulation, framing, and finishing without copyrighted manufacturer imagery or realistic fictional product photography that could imply real products.
+The next guided-discovery expansion is designed as a data extension rather than a new frontend architecture. A future journey can ask for a building element (wall, roof, ceiling, or floor), then position (interior or exterior), then a familiar need (noise, moisture, thermal comfort, fire, or finish). The matching scenario would provide the same outputs already supported by the current model: a plain-language explanation, ordered construction layers, educational priorities, recommended product IDs, and stored recommendation reasons. The MVP only exposes supported interior-wall combinations; unsupported combinations remain unavailable or return a clear recovery state until they are curated and reviewed.
+
+Phase 9 submission polish should revisit original lightweight SVG/CSS category visuals for product cards and details. Real photography is limited to generic room/material education and must never imply that a fictional catalogue product is the photographed item. The guided solution uses a hybrid: properly licensed representative photos for recognition plus an original interactive SVG for spatial explanation.
 
 A production evolution could add schema validation at data ingestion, caching, observability, security headers/rate controls, content governance, deployment automation, and a database or external product-information service. These are evolutionary options, not prerequisites for the take-home.
 

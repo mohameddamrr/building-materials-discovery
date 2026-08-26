@@ -34,13 +34,14 @@ export function ProductsPage() {
 
   return (
     <section aria-labelledby="products-heading">
-      <p className="text-sm font-bold uppercase tracking-[0.18em] text-amber-700">Product catalogue</p>
-      <h1 className="mt-4 text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl" id="products-heading">Products</h1>
-      <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">
-        Search directly or filter this small fictional range by category and the performance need you are exploring.
-      </p>
+      <div className="relative overflow-hidden rounded-[2rem] bg-[#101820] px-6 py-10 text-white sm:px-10 sm:py-14">
+        <div className="absolute -right-16 -top-24 size-72 rounded-full bg-amber-400/20 blur-3xl" />
+        <p className="relative text-sm font-bold uppercase tracking-[0.22em] text-amber-300">The material library</p>
+        <h1 className="relative mt-4 text-5xl font-bold tracking-tight sm:text-6xl" id="products-heading">Products that make spaces work.</h1>
+        <p className="relative mt-5 max-w-2xl text-lg leading-8 text-slate-200">A focused catalogue of boards, insulation, framing and finishing materials. Search by what you need to achieve.</p>
+      </div>
 
-      <div className="mt-8">
+      <div className="relative z-10 -mt-5 px-2 sm:px-5">
         <ProductFilters
           category={query.category}
           hasActiveFilters={searchParams.size > 0}

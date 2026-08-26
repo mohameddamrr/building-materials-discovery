@@ -7,11 +7,11 @@ describe("curated scenario data", () => {
   const scenarios = findAllScenarios();
   const productIds = new Set(findAllProducts().map((product) => product.id));
 
-  it("contains exactly the two priority scenarios with unique identities and selections", () => {
-    expect(scenarios).toHaveLength(2);
-    expect(new Set(scenarios.map(({ id }) => id)).size).toBe(2);
-    expect(new Set(scenarios.map(({ slug }) => slug)).size).toBe(2);
-    expect(new Set(scenarios.map(({ room, need }) => `${room}:${need}`)).size).toBe(2);
+  it("contains exactly the three curated scenarios with unique identities and selections", () => {
+    expect(scenarios).toHaveLength(3);
+    expect(new Set(scenarios.map(({ id }) => id)).size).toBe(3);
+    expect(new Set(scenarios.map(({ slug }) => slug)).size).toBe(3);
+    expect(new Set(scenarios.map(({ room, need }) => `${room}:${need}`)).size).toBe(3);
   });
 
   it("contains complete supported scenario content", () => {
@@ -45,4 +45,3 @@ describe("curated scenario data", () => {
     expect(content).not.toMatch(/soundproof|waterproof|mould[- ]?proof|certif|guarantee|\b\d+\s?(?:dB|mm|W|U-value)/i);
   });
 });
-

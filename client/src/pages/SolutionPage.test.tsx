@@ -15,14 +15,14 @@ const scenario = {
   performancePriorities: ["Treat the wall as a complete system", "Keep the surface practical to finish"],
   layers: [
     {
-      id: "lining",
+      id: "bedroom-facing-board",
       name: "Acoustic lining board",
       materialRole: "Forms the bedroom-side face",
       explanation: "Represents the selected lining layer.",
       products: [{ id: "board", slug: "acoustic-interior-board", name: "Acoustic Interior Board", category: "boards", shortDescription: "A fictional lining board.", applications: ["interior-walls"], performanceNeeds: ["noise-reduction"], tags: ["quiet"], keyFeatures: ["Conceptual"], source: { type: "fictional" } }],
     },
     {
-      id: "frame",
+      id: "metal-frame",
       name: "Metal framing",
       materialRole: "Organizes the wall faces",
       explanation: "Creates space for the cavity layer.",
@@ -36,6 +36,38 @@ const scenario = {
     {
       product: { id: "board", slug: "acoustic-interior-board", name: "Acoustic Interior Board", category: "boards", shortDescription: "A fictional lining board.", applications: ["interior-walls"], performanceNeeds: ["noise-reduction"], tags: ["quiet"], keyFeatures: ["Conceptual"], source: { type: "fictional" } },
       reason: "Recommended because this scenario prioritizes acoustic comfort.",
+    },
+  ],
+};
+
+const thermalScenario = {
+  ...scenario,
+  id: "scenario-bedroom-thermal-comfort",
+  slug: "bedroom-thermal-comfort-interior-wall",
+  need: "improve-thermal-comfort",
+  title: "A thermal-comfort bedroom interior wall",
+  summary: "A simplified thermal-comfort wall concept.",
+  layers: [
+    scenario.layers[0],
+    {
+      id: "thermal-cavity-insulation",
+      name: "Thermal-focused cavity insulation",
+      materialRole: "Occupies the wall cavity",
+      explanation: "Represents insulation considered between differently conditioned spaces.",
+      products: [{ ...scenario.layers[0].products[0], id: "thermal", slug: "thermal-cavity-insulation", name: "Thermal Cavity Insulation", category: "insulation", performanceNeeds: ["thermal-comfort"] }],
+    },
+    scenario.layers[1],
+    {
+      ...scenario.layers[0],
+      id: "opposite-side-board",
+      name: "Opposite-side lining board",
+      explanation: "Closes the adjoining face.",
+    },
+  ],
+  recommendations: [
+    {
+      product: { ...scenario.layers[0].products[0], id: "thermal", slug: "thermal-cavity-insulation", name: "Thermal Cavity Insulation", category: "insulation", performanceNeeds: ["thermal-comfort"] },
+      reason: "Recommended for a wall beside a differently conditioned space.",
     },
   ],
 };
@@ -58,12 +90,15 @@ describe("SolutionPage construction experience", () => {
     expect(await screen.findByRole("heading", { level: 1, name: scenario.title })).toBeInTheDocument();
     expect(screen.getByText("Bedroom")).toBeInTheDocument();
     expect(screen.getByText("Reduce noise between spaces")).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "How this wall is layered" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "What matters for this need" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "Products used in this concept" })).toBeInTheDocument();
+    expect(screen.getByRole("navigation", { name: "Solution guide" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "See how the wall works together" })).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: /Simplified interior-wall system-part overview/ })).toBeInTheDocument();
+    expect(screen.getByText("Part 1 of 2")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "What this wall concept is trying to achieve" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Products to explore" })).toBeInTheDocument();
     expect(screen.getByText(scenario.recommendations[0].reason)).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "View Acoustic Interior Board details" })).toHaveAttribute("href", "/products/acoustic-interior-board");
-    expect(screen.getByText(/Final system and material selection depends/)).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "View product details" })).toHaveAttribute("href", "/products/acoustic-interior-board");
+    expect(screen.getByText(/final selection depends on project requirements/i)).toBeInTheDocument();
   });
 
   it("selects layers with native buttons and updates explanation and related products", async () => {
@@ -82,8 +117,13 @@ describe("SolutionPage construction experience", () => {
     expect(frameLayer).toHaveAttribute("aria-pressed", "true");
     expect(firstLayer).toHaveAttribute("aria-pressed", "false");
     expect(screen.getByText("Creates space for the cavity layer.")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "View Interior Wall Stud" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "View Interior Wall Track" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Interior Wall Stud" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Interior Wall Track" })).toBeInTheDocument();
+    expect(screen.getByText("Part 2 of 2")).toBeInTheDocument();
+    expect(screen.getByText(/Selected part 2: Metal framing/)).toBeInTheDocument();
+    expect(document.querySelector('[data-layer-id="metal-frame"]')).toHaveAttribute("data-selected", "true");
+    expect(screen.getByRole("img", { name: /Metal studs and floor track/ })).toBeInTheDocument();
+    expect(document.querySelectorAll('button img')).toHaveLength(0);
   });
 
   it("renders useful recovery for an unknown solution", async () => {
@@ -93,5 +133,22 @@ describe("SolutionPage construction experience", () => {
     expect(await screen.findByRole("heading", { name: "Solution not found" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Change my choices" })).toHaveAttribute("href", "/discover");
     expect(screen.getByRole("link", { name: "Browse products" })).toHaveAttribute("href", "/products");
+  });
+
+  it("reuses the visual explorer for all thermal-comfort wall parts", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(response({ scenario: thermalScenario })));
+    const user = userEvent.setup();
+    renderPage();
+
+    expect(await screen.findByRole("heading", { level: 1, name: thermalScenario.title })).toBeInTheDocument();
+    const insulation = screen.getByRole("button", { name: /Thermal-focused cavity insulation/ });
+    expect(screen.getAllByRole("button", { name: /Part/ })).toHaveLength(4);
+
+    await user.click(insulation);
+
+    expect(insulation).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("img", { name: /glass-wool insulation material/ })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Thermal Cavity Insulation" })).toHaveAttribute("href", "/products/thermal-cavity-insulation");
+    expect(document.querySelector('[data-layer-id="thermal-cavity-insulation"]')).toHaveAttribute("data-selected", "true");
   });
 });
