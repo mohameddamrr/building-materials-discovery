@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router";
 import { PerformancePriorities } from "../components/solutions/PerformancePriorities";
 import { RecommendationList } from "../components/solutions/RecommendationList";
-import { roomPhotos } from "../components/solutions/solutionVisuals";
+import { getScenarioPhoto } from "../components/solutions/solutionVisuals";
 import { WallLayerExplorer } from "../components/solutions/WallLayerExplorer";
 import { useScenario } from "../hooks/useScenario";
 import { buildingElementLabels, roomLabels, userNeedLabels } from "../utils/scenarioLabels";
@@ -14,7 +14,7 @@ export function SolutionPage() {
   if (status === "not-found") return <section><h1 className="text-4xl font-bold text-slate-950">Solution not found</h1><p className="mt-4 text-lg text-slate-600">This link may be invalid or the scenario is not supported.</p><div className="mt-6 flex gap-4"><Link className="font-semibold underline" to="/discover">Change my choices</Link><Link className="font-semibold underline" to="/products">Browse products</Link></div></section>;
   if (status === "error" || !scenario) return <section role="alert" className="rounded-2xl border border-red-200 bg-red-50 p-6"><h1 className="text-2xl font-bold text-red-950">We could not load this solution.</h1><p className="mt-2 text-red-900">Check the connection and try again.</p><div className="mt-5 flex gap-4"><button className="rounded-full bg-slate-950 px-5 py-2.5 font-semibold text-white" onClick={retry} type="button">Try again</button><Link className="py-2 font-semibold underline" to="/discover">Change my choices</Link></div></section>;
 
-  const roomPhoto = roomPhotos[scenario.room];
+  const roomPhoto = getScenarioPhoto(scenario.slug);
   return (
     <article>
       <header className="relative min-h-[540px] overflow-hidden rounded-[2rem] bg-slate-950 text-white sm:min-h-[620px]">
@@ -26,7 +26,6 @@ export function SolutionPage() {
           <p className="mt-7 text-sm font-bold uppercase tracking-[0.22em] text-amber-300">Your project concept</p>
           <h1 className="mt-3 text-4xl font-bold leading-tight tracking-tight sm:text-6xl">{scenario.title}</h1>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-200">{scenario.summary}</p>
-          <p className="mt-8 text-xs text-slate-300">Context image: {roomPhoto.href ? <a className="underline underline-offset-2" href={roomPhoto.href} rel="noreferrer" target="_blank">{roomPhoto.credit} ↗</a> : roomPhoto.credit}</p>
         </div>
       </header>
 

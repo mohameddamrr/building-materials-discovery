@@ -1,81 +1,38 @@
-import type { ProductCategory } from "../../types/product";
-import type { Room } from "../../types/scenario";
-
 export interface SolutionPhoto {
   alt: string;
-  credit: string;
-  href?: string;
   src: string;
 }
 
-const boardPhoto: SolutionPhoto = {
-  alt: "Stacks of generic drywall sheets being delivered to a construction site",
-  credit: "KeepOnTruckin, CC BY-SA 3.0",
-  href: "https://commons.wikimedia.org/wiki/File:Drywall_material_handler.jpg",
-  src: "/images/materials/gypsum-board-wall.jpg",
-};
-
-const bedroomBoardPhoto: SolutionPhoto = {
-  alt: "Drywall sheets and hand tools prepared for installation",
-  credit: "Timothyjosephwood, CC BY-SA 4.0",
-  href: "https://commons.wikimedia.org/wiki/File:Drywall_and_tools.jpg",
-  src: "/images/materials/drywall-tools.jpg",
-};
-
-const oppositeBoardPhoto: SolutionPhoto = {
-  alt: "A partially finished gypsum wall with framing and cables visible",
-  credit: "Sambach, CC BY-SA 2.5",
-  href: "https://commons.wikimedia.org/wiki/File:Gypsum_wall.jpg",
-  src: "/images/materials/gypsum-wall-detail.jpg",
-};
-
-const insulationPhoto: SolutionPhoto = {
-  alt: "Close-up of yellow fibrous glass-wool insulation material",
-  credit: "Typisch, CC BY-SA 3.0",
-  href: "https://commons.wikimedia.org/wiki/File:Glaswolle.JPG",
-  src: "/images/materials/glass-wool-insulation.jpg",
-};
-
-const framingPhoto: SolutionPhoto = {
-  alt: "Metal studs and floor track being assembled before wall lining is attached",
-  credit: "Matthew Noles / U.S. Navy, public domain",
-  href: "https://commons.wikimedia.org/wiki/File:Metal_Framing_(9020041).jpg",
-  src: "/images/materials/metal-framing.jpg",
-};
-
-const finishingPhoto: SolutionPhoto = {
-  alt: "Workers applying joint treatment along visible seams between drywall boards",
-  credit: "MTA Capital Construction, CC BY 2.0",
-  href: "https://commons.wikimedia.org/wiki/File:Taping_gypsum_board_seams_in_back_of_house_rooms_in_the_new_LIRR_passenger_concourse_in_preparation_for_painting_and_final_finishes._4-17-19_(47645209441).jpg",
-  src: "/images/materials/joint-finishing.jpg",
-};
-
-export const roomPhotos: Record<Room, SolutionPhoto> = {
-  bedroom: {
-    alt: "Contemporary bedroom interior with a finished feature wall",
-    credit: "Original AI-generated image for this prototype",
-    src: "/images/generated/bedroom-hero-v2.png",
+const scenarioPhotos: Record<string, SolutionPhoto> = {
+  "bedroom-quieter-interior-wall": {
+    alt: "Serene modern bedroom with an acoustic feature wall",
+    src: "/images/generated/noise-solution-hero-v2.jpg",
   },
-  bathroom: {
-    alt: "Contemporary bathroom with clean moisture-conscious wall finishes",
-    credit: "Original AI-generated image for this prototype",
-    src: "/images/generated/bathroom-context-v2.png",
+  "bedroom-thermal-comfort-interior-wall": {
+    alt: "Warm modern bedroom designed around thermal comfort",
+    src: "/images/generated/thermal-solution-hero-v2.jpg",
+  },
+  "bathroom-moisture-aware-interior-wall": {
+    alt: "Modern bathroom with carefully detailed shower walls",
+    src: "/images/generated/moisture-solution-hero-v2.jpg",
   },
 };
 
 export const layerPhotos: Record<string, SolutionPhoto> = {
-  "bathroom-facing-board": boardPhoto,
-  "bedroom-facing-board": bedroomBoardPhoto,
-  "board-joint-finish": finishingPhoto,
-  "metal-frame": framingPhoto,
-  "opposite-side-board": oppositeBoardPhoto,
-  "thermal-cavity-insulation": insulationPhoto,
-  "wall-cavity-insulation": insulationPhoto,
+  "bathroom-facing-board": { alt: "Generic green-faced moisture-conscious gypsum board", src: "/images/generated/moisture-board-product-v2.jpg" },
+  "bedroom-facing-board": { alt: "Generic blue-gray acoustic lining board", src: "/images/generated/acoustic-board-product-v2.jpg" },
+  "board-joint-finish": { alt: "Generic joint compound and drywall finishing knife", src: "/images/generated/joint-compound-product-v2.jpg" },
+  "metal-frame": { alt: "Metal studs and floor track used to form an interior wall frame", src: "/images/generated/wall-stud-product-v2.jpg" },
+  "opposite-side-board": { alt: "Generic standard gypsum board with its cut core visible", src: "/images/generated/standard-board-product-v2.jpg" },
+  "thermal-cavity-insulation": { alt: "Golden glass-wool insulation material in roll and batt form", src: "/images/generated/thermal-insulation-product-v2.jpg" },
+  "wall-cavity-insulation": { alt: "Dense acoustic mineral-wool insulation slabs", src: "/images/generated/acoustic-insulation-product-v2.jpg" },
 };
 
-export const categoryPhotos: Record<ProductCategory, SolutionPhoto> = {
-  boards: boardPhoto,
-  finishing: finishingPhoto,
-  framing: framingPhoto,
-  insulation: insulationPhoto,
+const fallbackScenarioPhoto: SolutionPhoto = {
+  alt: "Conceptual interior wall with board, framing and insulation layers",
+  src: "/images/generated/wall-system-v2.jpg",
 };
+
+export function getScenarioPhoto(slug: string) {
+  return scenarioPhotos[slug] ?? fallbackScenarioPhoto;
+}

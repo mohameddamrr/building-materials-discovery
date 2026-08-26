@@ -97,7 +97,7 @@ describe("SolutionPage construction experience", () => {
     expect(screen.getByRole("heading", { name: "What this wall concept is trying to achieve" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Products to explore" })).toBeInTheDocument();
     expect(screen.getByText(scenario.recommendations[0].reason)).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "View product details" })).toHaveAttribute("href", "/products/acoustic-interior-board");
+    expect(screen.getByRole("link", { name: "View Acoustic Interior Board details" })).toHaveAttribute("href", "/products/acoustic-interior-board");
     expect(screen.getByText(/final selection depends on project requirements/i)).toBeInTheDocument();
   });
 

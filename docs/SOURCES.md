@@ -44,7 +44,7 @@ These sources establish only the generic board/frame/optional-insulation composi
 
 ## Visual assets
 
-The system diagram is original repository-owned SVG. Carefully selected real photographs help users recognize generic rooms and materials; they are not presented as images of the fictional catalogue products.
+The system diagram is original repository-owned SVG. The active interface uses original AI-generated editorial images so each room, goal, building element, scenario, and fictional product has a purpose-made visual without implying affiliation with a real manufacturer. Previously sourced photographs remain documented because the files are retained in the repository, but they are no longer used by the main journeys.
 
 | Asset | Origin/license | Notes |
 | --- | --- | --- |
@@ -60,9 +60,16 @@ The system diagram is original repository-owned SVG. Carefully selected real pho
 | `roof-construction.jpg` | Unsplash License | Source image: https://images.unsplash.com/photo-1625600103040-09090621f75b. Downloaded locally and used as representative roof-framing imagery. |
 | `ceiling-construction.jpg` | Unsplash License | Source image: https://images.unsplash.com/photo-1504307651254-35680f356dfd. Downloaded locally and used as representative unfinished-building imagery for the ceiling option. |
 | `floor-construction.jpg` | Samuel Cruz, Unsplash License | Source: https://unsplash.com/photos/a-room-with-a-wood-floor-and-a-bench-17nDFVkBYK0. Downloaded locally and used as representative floor/framing imagery. |
-| `generated/bedroom-hero-v2.png` | Original AI-generated image | Created with OpenAI image generation on 2026-08-26 for this prototype. Used as the homepage and bedroom-scenario hero/context image; it contains no brands, text, or identifiable people. |
-| `generated/bathroom-context-v2.png` | Original AI-generated image | Created with OpenAI image generation on 2026-08-26 for this prototype. Used as the bathroom-scenario context image; it contains no brands, text, or identifiable people. |
-| `generated/wall-system-v2.png` | Original AI-generated image | Created with OpenAI image generation on 2026-08-26 for this prototype. Used for the wall discovery element and visual project-builder header; it depicts a generic conceptual metal-stud and insulation wall. |
+| `generated/bedroom-hero-v2.jpg` | Original AI-generated image | Homepage hero created with OpenAI image generation on 2026-08-26. |
+| `generated/wall-system-v2.jpg`, `discovery-hero-v2.jpg` | Original AI-generated images | Distinct wall-element and guided-discovery header visuals. |
+| `generated/*-choice-v2.jpg` | Original AI-generated images | Purpose-made wall-location, roof, ceiling, and floor choice images. The unavailable choices communicate future scope without reusing unrelated photographs. |
+| `generated/bedroom-room-v2.jpg`, `bathroom-room-v2.jpg` | Original AI-generated images | Distinct room-selection visuals. |
+| `generated/noise-goal-v2.jpg`, `thermal-goal-v2.jpg`, `moisture-goal-v2.jpg` | Original AI-generated images | Distinct goal-selection visuals showing acoustic calm, insulation context, and moisture exposure respectively. |
+| `generated/*-solution-hero-v2.jpg` | Original AI-generated images | One unique architectural hero for each complete guided scenario. |
+| `generated/*-product-v2.jpg` | Original AI-generated images | Nine distinct, unbranded studio visuals corresponding to the nine fictional products; they contain no packaging claims or technical labels. |
+| `generated/about-framing-v2.jpg`, `about-materials-v2.jpg` | Original AI-generated images | Unique editorial imagery for the homepage About section. |
+
+All generated images in this section were created specifically for the prototype on 2026-08-26. Prompts requested generic materials, no brands, no text, and no identifiable people. They are illustrative visuals rather than evidence of product performance or certified system construction.
 
 Pexels permits its photos to be used in websites and applications and permits modification. License reviewed 2026-08-26: https://www.pexels.com/license/.
 

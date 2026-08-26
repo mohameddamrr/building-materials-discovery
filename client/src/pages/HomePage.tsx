@@ -4,7 +4,7 @@ export function HomePage() {
   return (
     <section aria-labelledby="home-heading" className="-mx-5 -mt-10 sm:-mx-8 sm:-mt-14">
       <div className="relative min-h-[620px] overflow-hidden bg-[#101820] text-white">
-        <img alt="Modern interior with a calm material palette and a finished wall" className="absolute inset-0 size-full object-cover opacity-60" src="/images/generated/bedroom-hero-v2.png" />
+        <img alt="Modern interior with a calm material palette and a finished wall" className="absolute inset-0 size-full object-cover opacity-60" src="/images/generated/bedroom-hero-v2.jpg" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#101820] via-[#101820]/75 to-[#101820]/10" />
         <div className="relative mx-auto flex min-h-[620px] max-w-7xl items-end px-5 pb-16 sm:px-8 sm:pb-20">
           <div className="max-w-3xl">
@@ -24,8 +24,8 @@ export function HomePage() {
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24" id="about" aria-labelledby="about-heading">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div className="relative grid grid-cols-5 gap-3">
-            <img alt="Metal wall framing prepared on a construction site" className="col-span-3 h-72 w-full rounded-3xl object-cover shadow-xl" src="/images/materials/metal-framing.jpg" />
-            <img alt="Insulation material used as a representative construction layer" className="col-span-2 mt-12 h-52 w-full rounded-3xl object-cover shadow-xl" src="/images/materials/glass-wool-insulation.jpg" />
+            <img alt="Close-up of a precisely assembled metal wall frame" className="col-span-3 h-72 w-full rounded-3xl object-cover shadow-xl" src="/images/generated/about-framing-v2.jpg" />
+            <img alt="Curated palette of board, insulation and metal building materials" className="col-span-2 mt-12 h-52 w-full rounded-3xl object-cover shadow-xl" src="/images/generated/about-materials-v2.jpg" />
             <span className="absolute -bottom-5 left-8 rounded-full bg-amber-400 px-5 py-3 text-sm font-black text-slate-950 shadow-lg">Made for clearer choices</span>
           </div>
           <div>
