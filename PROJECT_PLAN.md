@@ -2,14 +2,14 @@
 
 ## Document status
 
-- Current phase: Phase 0 — Repository inspection and planning
+- Current phase: Phase 1 — Project foundation
 - Phase status: Completed
 - Last updated: 2026-08-24
 - Working title: Material Pathways (placeholder; not approved branding)
 
 This is a living plan. Important changes to scope, data, architecture, or user experience must be recorded here before or alongside implementation.
 
-Repository baseline: the workspace was empty at inspection and was not initialized as a Git repository. Phase 0 therefore creates only this plan and the source register. Git initialization will be proposed as an explicit Phase 1 foundation step; no commit or push has occurred.
+Repository baseline: the workspace was empty at initial inspection. After Phase 0 approval, Git was initialized on `main`, the GitHub `origin` was configured, and the approved Phase 0 documentation commit was pushed. Phase 1 foundation work begins from that clean baseline.
 
 ## 1. Assignment summary
 
@@ -311,7 +311,7 @@ The project will not optimize for an arbitrary coverage percentage.
 | Phase | Outcome | Status |
 | --- | --- | --- |
 | 0. Repository inspection and planning | Inspect baseline; create plan and source register | Completed |
-| 1. Project foundation | Client/server toolchains, routing skeleton, API connection, minimal layout | Not started |
+| 1. Project foundation | Client/server toolchains, routing skeleton, API connection, minimal layout | Completed |
 | 2. Data model and backend foundation | Types, JSON, repository/service/controller/routes, validation, API tests | Not started |
 | 3. Product catalogue UI | List, search, filters, cards, details, and intentional states | Not started |
 | 4. Guided discovery foundation | Discovery choices, scenarios, deterministic recommendation API | Not started |

@@ -49,6 +49,17 @@ The planned wall diagrams and interface graphics will be original repository-own
 
 If an external asset is later proposed, its source, author, license, modifications, and exact use must be documented before inclusion.
 
+## Technical implementation references
+
+These sources informed project configuration rather than application content.
+
+| Topic | Source title and publisher | URL | Accessed | Project usage |
+| --- | --- | --- | --- | --- |
+| Client tooling | “Getting Started,” Vite | https://vite.dev/guide/ | 2026-08-24 | Confirmed the React/TypeScript template approach and supported Node.js versions. |
+| CSS tooling | “Installing Tailwind CSS with Vite,” Tailwind CSS | https://tailwindcss.com/docs/installation/using-vite | 2026-08-24 | Used the current Tailwind Vite plugin and CSS import approach instead of legacy PostCSS configuration. |
+| Client routing | “Installation — Declarative,” React Router | https://reactrouter.com/start/declarative/installation | 2026-08-24 | Used declarative routing with `BrowserRouter` for the small single-page client. |
+| Server setup | “Installing,” Express | https://expressjs.com/en/starter/installing/ | 2026-08-24 | Confirmed the Express TypeScript and Node.js prerequisites. |
+
 ## Claims intentionally excluded
 
 Unless an authoritative source is necessary, verified, and recorded, the MVP will exclude:
