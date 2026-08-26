@@ -4,7 +4,7 @@ import type { Room } from "../../types/scenario";
 export interface SolutionPhoto {
   alt: string;
   credit: string;
-  href: string;
+  href?: string;
   src: string;
 }
 
@@ -52,16 +52,14 @@ const finishingPhoto: SolutionPhoto = {
 
 export const roomPhotos: Record<Room, SolutionPhoto> = {
   bedroom: {
-    alt: "A calm bedroom with a bed positioned beside an interior wall",
-    credit: "Get Lost Mike / Pexels",
-    href: "https://www.pexels.com/photo/bedroom-interior-with-a-bed-near-a-wall-12485856/",
-    src: "/images/materials/bedroom-context.jpg",
+    alt: "Contemporary bedroom interior with a finished feature wall",
+    credit: "Original AI-generated image for this prototype",
+    src: "/images/generated/bedroom-hero-v2.png",
   },
   bathroom: {
-    alt: "A contemporary bathroom interior with tiled wall surfaces",
-    credit: "Max Vakhtbovych / Pexels",
-    href: "https://www.pexels.com/photo/interior-of-modern-bathroom-5998120/",
-    src: "/images/materials/bathroom-context.jpg",
+    alt: "Contemporary bathroom with clean moisture-conscious wall finishes",
+    credit: "Original AI-generated image for this prototype",
+    src: "/images/generated/bathroom-context-v2.png",
   },
 };
 

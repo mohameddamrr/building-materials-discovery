@@ -4,7 +4,7 @@ export function HomePage() {
   return (
     <section aria-labelledby="home-heading" className="-mx-5 -mt-10 sm:-mx-8 sm:-mt-14">
       <div className="relative min-h-[620px] overflow-hidden bg-[#101820] text-white">
-        <img alt="Modern interior with a calm material palette and a finished wall" className="absolute inset-0 size-full object-cover opacity-60" src="/images/materials/bedroom-context.jpg" />
+        <img alt="Modern interior with a calm material palette and a finished wall" className="absolute inset-0 size-full object-cover opacity-60" src="/images/generated/bedroom-hero-v2.png" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#101820] via-[#101820]/75 to-[#101820]/10" />
         <div className="relative mx-auto flex min-h-[620px] max-w-7xl items-end px-5 pb-16 sm:px-8 sm:pb-20">
           <div className="max-w-3xl">

@@ -60,6 +60,9 @@ The system diagram is original repository-owned SVG. Carefully selected real pho
 | `roof-construction.jpg` | Unsplash License | Source image: https://images.unsplash.com/photo-1625600103040-09090621f75b. Downloaded locally and used as representative roof-framing imagery. |
 | `ceiling-construction.jpg` | Unsplash License | Source image: https://images.unsplash.com/photo-1504307651254-35680f356dfd. Downloaded locally and used as representative unfinished-building imagery for the ceiling option. |
 | `floor-construction.jpg` | Samuel Cruz, Unsplash License | Source: https://unsplash.com/photos/a-room-with-a-wood-floor-and-a-bench-17nDFVkBYK0. Downloaded locally and used as representative floor/framing imagery. |
+| `generated/bedroom-hero-v2.png` | Original AI-generated image | Created with OpenAI image generation on 2026-08-26 for this prototype. Used as the homepage and bedroom-scenario hero/context image; it contains no brands, text, or identifiable people. |
+| `generated/bathroom-context-v2.png` | Original AI-generated image | Created with OpenAI image generation on 2026-08-26 for this prototype. Used as the bathroom-scenario context image; it contains no brands, text, or identifiable people. |
+| `generated/wall-system-v2.png` | Original AI-generated image | Created with OpenAI image generation on 2026-08-26 for this prototype. Used for the wall discovery element and visual project-builder header; it depicts a generic conceptual metal-stud and insulation wall. |
 
 Pexels permits its photos to be used in websites and applications and permits modification. License reviewed 2026-08-26: https://www.pexels.com/license/.
 

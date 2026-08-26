@@ -26,7 +26,7 @@ export function SolutionPage() {
           <p className="mt-7 text-sm font-bold uppercase tracking-[0.22em] text-amber-300">Your project concept</p>
           <h1 className="mt-3 text-4xl font-bold leading-tight tracking-tight sm:text-6xl">{scenario.title}</h1>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-200">{scenario.summary}</p>
-          <p className="mt-8 text-xs text-slate-300">Context photo: <a className="underline underline-offset-2" href={roomPhoto.href} rel="noreferrer" target="_blank">{roomPhoto.credit} ↗</a></p>
+          <p className="mt-8 text-xs text-slate-300">Context image: {roomPhoto.href ? <a className="underline underline-offset-2" href={roomPhoto.href} rel="noreferrer" target="_blank">{roomPhoto.credit} ↗</a> : roomPhoto.credit}</p>
         </div>
       </header>
 

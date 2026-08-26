@@ -10,21 +10,21 @@ type DiscoveryElement = "wall" | "roof" | "ceiling" | "floor";
 type DiscoveryPosition = "interior" | "exterior";
 
 const elementChoices: Array<{ id: DiscoveryElement; label: string; description: string; available: boolean; image: string; alt: string }> = [
-  { id: "wall", label: "Walls", description: "Partitions and wall build-ups", available: true, image: "/images/materials/metal-framing.jpg", alt: "Metal framing being assembled for a wall" },
+  { id: "wall", label: "Walls", description: "Partitions and wall build-ups", available: true, image: "/images/generated/wall-system-v2.png", alt: "Modern interior wall construction with metal studs and insulation" },
   { id: "roof", label: "Roof", description: "Roof layers and weather protection", available: false, image: "/images/elements/roof-construction.jpg", alt: "Timber roof structure under construction" },
   { id: "ceiling", label: "Ceiling", description: "Ceiling build-ups and comfort", available: false, image: "/images/elements/ceiling-construction.jpg", alt: "Construction workers working inside an unfinished building" },
   { id: "floor", label: "Floor", description: "Floor layers and underlays", available: false, image: "/images/elements/floor-construction.jpg", alt: "Unfinished room with a timber floor and exposed framing" },
 ];
 
 const roomImages: Record<Room, { src: string; width: number }> = {
-  bathroom: { src: "/images/materials/bathroom-context.jpg", width: 1124 },
-  bedroom: { src: "/images/materials/bedroom-context.jpg", width: 1125 },
+  bathroom: { src: "/images/generated/bathroom-context-v2.png", width: 1672 },
+  bedroom: { src: "/images/generated/bedroom-hero-v2.png", width: 1672 },
 };
 
 const problemImages: Record<UserNeed, { src: string; width: number; height: number }> = {
-  "reduce-noise": { src: "/images/materials/bedroom-context.jpg", width: 1125, height: 750 },
+  "reduce-noise": { src: "/images/generated/bedroom-hero-v2.png", width: 1672, height: 940 },
   "improve-thermal-comfort": { src: "/images/materials/glass-wool-insulation.jpg", width: 1280, height: 923 },
-  "manage-moisture": { src: "/images/materials/bathroom-context.jpg", width: 1124, height: 750 },
+  "manage-moisture": { src: "/images/generated/bathroom-context-v2.png", width: 1672, height: 940 },
 };
 
 export function DiscoverPage() {
@@ -97,7 +97,7 @@ export function DiscoverPage() {
   return (
     <section>
       <div className="relative overflow-hidden rounded-[2rem] bg-[#101820] px-6 py-10 text-white sm:px-10 sm:py-12">
-        <img alt="" aria-hidden="true" className="absolute inset-0 size-full object-cover opacity-30" src="/images/materials/gypsum-wall-detail.jpg" />
+        <img alt="" aria-hidden="true" className="absolute inset-0 size-full object-cover opacity-30" src="/images/generated/wall-system-v2.png" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#101820] via-[#101820]/90 to-[#101820]/25" />
         <p className="relative text-sm font-bold uppercase tracking-[0.22em] text-amber-300">Guided discovery</p>
         <h1 className="relative mt-4 max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl">Build your project path</h1>
@@ -129,7 +129,7 @@ export function DiscoverPage() {
         <section aria-labelledby="position-choice-heading" className="mt-4">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-amber-700">Wall type</p><h2 className="mt-2 text-3xl font-bold text-slate-950" id="position-choice-heading">Where is the wall?</h2>
             <div className="mt-6 grid gap-4 sm:grid-cols-2" role="group" aria-labelledby="position-choice-heading">
-              {([{ id: "interior", label: "Interior", description: "A wall between rooms or spaces", available: true, image: "/images/materials/gypsum-wall-detail.jpg" }, { id: "exterior", label: "Exterior", description: "A wall exposed to outdoor conditions", available: false, image: "/images/elements/roof-construction.jpg" }] as const).map((choice) => {
+              {([{ id: "interior", label: "Interior", description: "A wall between rooms or spaces", available: true, image: "/images/generated/wall-system-v2.png" }, { id: "exterior", label: "Exterior", description: "A wall exposed to outdoor conditions", available: false, image: "/images/elements/roof-construction.jpg" }] as const).map((choice) => {
                 const selected = position === choice.id;
                 return <button aria-pressed={selected} className={`group relative min-h-60 overflow-hidden rounded-2xl border-2 text-left text-white shadow-lg outline-offset-4 motion-safe:transition-transform motion-safe:hover:-translate-y-1 focus-visible:outline-4 focus-visible:outline-amber-500 ${selected ? "border-amber-400" : "border-transparent hover:border-amber-300"}`} disabled={!choice.available || submitStatus === "loading"} key={choice.id} onClick={() => selectPosition(choice.id)} type="button"><img alt="" aria-hidden="true" className="absolute inset-0 size-full object-cover transition duration-500 group-hover:scale-105" src={choice.image} /><span className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/45 to-slate-950/10" /><span className="absolute inset-x-0 bottom-0 p-5"><span className="block text-2xl font-bold">{choice.label}</span><span className="mt-1 block text-sm leading-6 text-slate-200">{choice.description}</span></span><span className={`absolute right-4 top-4 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wide ${choice.available ? (selected ? "bg-amber-400 text-slate-950" : "bg-white text-slate-950") : "bg-slate-950/80 text-white"}`}>{choice.available ? (selected ? "Selected" : "Available") : "Coming soon"}</span></button>;
               })}
