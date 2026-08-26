@@ -11,17 +11,22 @@ The guiding flow is **discover → understand → recommend → explore product*
 
 ## Product walkthrough
 
-The repository includes screenshots of the key experience states:
+The screenshots below show the primary journey from first visit to product understanding.
 
-![Home](docs/screenshots/01-home.png)
+<p><strong>Home — two clear entry points.</strong><br>Visitors can start with a real-world problem or browse the catalogue directly.</p>
+<img src="docs/screenshots/01-home.png" alt="Material Pathways home page with Find a solution and Browse products entry points" width="900">
 
-![Guided discovery](docs/screenshots/02-discovery.png)
+<p><strong>Guided discovery — choose context before terminology.</strong><br>The user selects a building element, position, room, and goal using visual choices.</p>
+<img src="docs/screenshots/02-discovery.png" alt="Guided discovery page with visual building-element choices" width="900">
 
-![Product catalogue](docs/screenshots/03-products.png)
+<p><strong>Catalogue — search and filter by intent.</strong><br>Users who already know what they need can scan product cards and narrow results by category or performance need.</p>
+<img src="docs/screenshots/03-products.png" alt="Product catalogue with search, filters, and material cards" width="900">
 
-![Product detail](docs/screenshots/04-product-detail.png)
+<p><strong>Product detail — understand the material quickly.</strong><br>Each product explains its role, applications, performance focus, system fit, and key features.</p>
+<img src="docs/screenshots/04-product-detail.png" alt="Product detail page showing material overview, system fit, and key features" width="900">
 
-![Solution guide](docs/screenshots/05-solution.png)
+<p><strong>Solution guide — connect the problem to a system.</strong><br>The result explains the layered wall concept, what each layer does, and which products are relevant.</p>
+<img src="docs/screenshots/05-solution.png" alt="Solution guide showing an interactive layered interior wall and recommendations" width="900">
 
 ## MVP scope
 
