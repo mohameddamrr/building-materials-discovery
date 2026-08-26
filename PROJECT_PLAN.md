@@ -2,7 +2,7 @@
 
 ## Document status
 
-- Current phase: Phase 4 — Guided discovery foundation
+- Current phase: Phase 5 — Construction understanding experience
 - Phase status: Completed
 - Last updated: 2026-08-26
 - Working title: Material Pathways (placeholder; not approved branding)
@@ -316,7 +316,7 @@ The project will not optimize for an arbitrary coverage percentage.
 | 2. Data model and backend foundation | Types, JSON, repository/service/controller/routes, validation, API tests | Completed |
 | 3. Product catalogue UI | List, search, filters, cards, details, and intentional states | Completed |
 | 4. Guided discovery foundation | Discovery choices, scenarios, deterministic recommendation API | Completed |
-| 5. Construction understanding experience | One polished accessible wall solution and product path | Not started |
+| 5. Construction understanding experience | One polished accessible wall solution and product path | Completed |
 | 6. Additional curated scenarios | Reuse architecture for approximately 2–3 complete scenarios | Not started |
 | 7. Accessibility, responsiveness, edge cases | Deliberate QA and recovery pass | Not started |
 | 8. Tests and technical review | Typecheck, lint, tests, builds, focused fixes | Not started |
