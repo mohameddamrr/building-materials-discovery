@@ -2,7 +2,7 @@
 
 ## Document status
 
-- Current phase: Phase 2 — Data model and backend foundation
+- Current phase: Phase 3 — Product catalogue UI
 - Phase status: Completed
 - Last updated: 2026-08-26
 - Working title: Material Pathways (placeholder; not approved branding)
@@ -314,7 +314,7 @@ The project will not optimize for an arbitrary coverage percentage.
 | 0. Repository inspection and planning | Inspect baseline; create plan and source register | Completed |
 | 1. Project foundation | Client/server toolchains, routing skeleton, API connection, minimal layout | Completed |
 | 2. Data model and backend foundation | Types, JSON, repository/service/controller/routes, validation, API tests | Completed |
-| 3. Product catalogue UI | List, search, filters, cards, details, and intentional states | Not started |
+| 3. Product catalogue UI | List, search, filters, cards, details, and intentional states | Completed |
 | 4. Guided discovery foundation | Discovery choices, scenarios, deterministic recommendation API | Not started |
 | 5. Construction understanding experience | One polished accessible wall solution and product path | Not started |
 | 6. Additional curated scenarios | Reuse architecture for approximately 2–3 complete scenarios | Not started |
@@ -343,6 +343,8 @@ Every phase has an approval gate. Checks, Git status, diff summary, review findi
 ## 21. Future extensions
 
 Future possibilities, explicitly outside the MVP, include additional building elements and rooms, richer comparison, real manufacturer data under a reviewed content/license strategy, localization, analytics-backed usability research, persistent product management, and a database when real write/query requirements exist.
+
+Phase 9 submission polish should revisit original lightweight SVG/CSS category visuals for product cards and details. These should communicate boards, insulation, framing, and finishing without copyrighted manufacturer imagery or realistic fictional product photography that could imply real products.
 
 A production evolution could add schema validation at data ingestion, caching, observability, security headers/rate controls, content governance, deployment automation, and a database or external product-information service. These are evolutionary options, not prerequisites for the take-home.
 

@@ -10,10 +10,10 @@
     "build": "npm run build --workspace server && npm run build --workspace client",
     "typecheck": "npm run typecheck --workspace server && npm run typecheck --workspace client",
     "lint": "npm run lint --workspace server && npm run lint --workspace client",
-    "test": "npm run test --workspace server"
+    "test": "npm run test --workspace server && npm run test --workspace client"
   },
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=22.22.2"
   },
   "devDependencies": {
     "concurrently": "^10.0.5"
