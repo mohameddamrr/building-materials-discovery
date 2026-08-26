@@ -51,8 +51,8 @@ export function AppLayout() {
             <span className="flex size-9 items-center justify-center bg-amber-400 text-sm font-black text-[#101820] motion-safe:transition-transform motion-safe:group-hover:rotate-6">MP</span>
             <span className="text-lg font-bold tracking-tight">Material Pathways</span>
           </NavLink>
-          <nav aria-label="Primary navigation">
-            <ul className="flex flex-wrap gap-1">
+          <nav aria-label="Primary navigation" className="max-w-full overflow-x-auto">
+            <ul className="flex w-max gap-1 whitespace-nowrap">
               {navigationItems.map((item) => (
                 <li key={item.to}>
                   <NavLink
