@@ -2,9 +2,9 @@
 
 ## Document status
 
-- Current phase: Phase 1 — Project foundation
+- Current phase: Phase 2 — Data model and backend foundation
 - Phase status: Completed
-- Last updated: 2026-08-24
+- Last updated: 2026-08-26
 - Working title: Material Pathways (placeholder; not approved branding)
 
 This is a living plan. Important changes to scope, data, architecture, or user experience must be recorded here before or alongside implementation.
@@ -127,6 +127,10 @@ type PerformanceNeed =
   | "moisture-resistance"
   | "thermal-comfort";
 
+type ProductSource =
+  | { type: "fictional" }
+  | { type: "public-source"; url: string };
+
 interface Product {
   id: string;                 // stable relationship key
   slug: string;               // readable route identifier
@@ -137,10 +141,7 @@ interface Product {
   performanceNeeds: PerformanceNeed[];
   tags: string[];             // includes useful plain-language search synonyms
   keyFeatures: string[];
-  source: {
-    type: "fictional" | "public-source";
-    url?: string;
-  };
+  source: ProductSource;
 }
 
 type Room = "bedroom" | "bathroom";
@@ -312,7 +313,7 @@ The project will not optimize for an arbitrary coverage percentage.
 | --- | --- | --- |
 | 0. Repository inspection and planning | Inspect baseline; create plan and source register | Completed |
 | 1. Project foundation | Client/server toolchains, routing skeleton, API connection, minimal layout | Completed |
-| 2. Data model and backend foundation | Types, JSON, repository/service/controller/routes, validation, API tests | Not started |
+| 2. Data model and backend foundation | Types, JSON, repository/service/controller/routes, validation, API tests | Completed |
 | 3. Product catalogue UI | List, search, filters, cards, details, and intentional states | Not started |
 | 4. Guided discovery foundation | Discovery choices, scenarios, deterministic recommendation API | Not started |
 | 5. Construction understanding experience | One polished accessible wall solution and product path | Not started |

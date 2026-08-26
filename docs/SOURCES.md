@@ -2,9 +2,9 @@
 
 ## Status
 
-- Last updated: 2026-08-24
-- Phase: Phase 0 — initial source register complete
-- External research performed: Yes, limited planning research from authoritative public sources
+- Last updated: 2026-08-26
+- Phase: Phase 2 — product data and backend foundation complete
+- External research performed: Yes, limited research from authoritative public sources
 
 This document records sources actually consulted and explains how information is used. A source will not be listed merely to make the project appear researched.
 
@@ -23,21 +23,22 @@ The dataset is intended to demonstrate product discovery, search/filter behavior
 
 ## Product data
 
-No product records exist yet. The planned initial catalogue will be fictional. When Phase 2 creates records, this section will identify the range, classification, and any exceptions.
+The Phase 2 catalogue contains nine fictional products. All names, descriptions, tags, and feature wording are original prototype content. No record uses product-specific manufacturer facts, imagery, ratings, certifications, dimensions, or specifications.
 
 | Item or range | Classification | Source | How used | Notes |
 | --- | --- | --- | --- | --- |
-| Planned MVP catalogue (8–12 products) | Fictional | Not applicable | Catalogue, product details, deterministic scenarios | Names and wording must be original and avoid manufacturer trademarks |
+| MVP catalogue (nine products) | Fictional | Not applicable | Catalogue, product details, and future deterministic scenarios | Original generic names and restrained wording; no manufacturer affiliation |
 
 ## Educational/domain sources
 
 | Topic | Source title and publisher | URL | Accessed | Application usage |
 | --- | --- | --- | --- | --- |
 | Basic interior-partition composition | “Drywall Systems - Partitions, Ceilings & Shafts,” Knauf Egypt | https://knauf.com/en-EG/systems/drywall-systems | 2026-08-24 | Confirms at a planning level that a simple interior wall can be explained as board layers on both sides of metal framing, with optional cavity insulation. No diagrams, product wording, specifications, or technical values will be copied. |
+| Joint-finishing roles | “Fill & Finish,” Knauf UK & Ireland | https://knauf.com/en-GB/p/product/fill-finish-11410_0306 | 2026-08-26 | Confirms only the general educational concept that jointing compound is used with tape when finishing plasterboard joints. Product claims, performance wording, and application instructions are not copied into the fictional catalogue. |
 | Keyboard accessibility | “Accessibility Principles,” W3C Web Accessibility Initiative | https://www.w3.org/WAI/fundamentals/accessibility-principles/ | 2026-08-24 | Supports the requirement that functionality available by pointer must also be operable through a keyboard, including the planned layer selector. |
 | Visible focus | “Understanding SC 2.4.7: Focus Visible,” W3C Web Accessibility Initiative | https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html | 2026-08-24 | Supports deliberate visible focus indicators for interactive controls. |
 
-These sources currently influence architectural/content boundaries rather than final application copy. Phase 2 must verify and record any additional factual claims before curated data is finalized, especially the plain-language roles of boards, framing, insulation, and finishing layers.
+These sources establish only the generic board/frame/optional-insulation composition and the basic role of compound and tape in joint finishing. All named products and descriptive wording remain simplified original prototype content. Any more specific factual claim introduced in later scenario copy must be verified and recorded before use.
 
 ## Visual assets
 

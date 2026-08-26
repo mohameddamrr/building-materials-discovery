@@ -1,0 +1,147 @@
+[
+  {
+    "id": "prod-standard-board",
+    "slug": "standard-interior-board",
+    "name": "Standard Interior Board",
+    "category": "boards",
+    "shortDescription": "A fictional general-purpose lining board for the visible faces of the prototype interior walls.",
+    "applications": ["interior-walls"],
+    "performanceNeeds": [],
+    "tags": ["drywall", "plasterboard", "lining", "partition", "wall board"],
+    "keyFeatures": [
+      "Represents a general interior wall lining",
+      "Creates a surface ready for the finishing stage",
+      "Shared by wall concepts without a specialist board priority"
+    ],
+    "source": { "type": "fictional" }
+  },
+  {
+    "id": "prod-acoustic-board",
+    "slug": "acoustic-interior-board",
+    "name": "Acoustic Interior Board",
+    "category": "boards",
+    "shortDescription": "A fictional interior lining board included in wall concepts where reducing transferred noise is a priority.",
+    "applications": ["interior-walls"],
+    "performanceNeeds": ["noise-reduction"],
+    "tags": ["sound", "noise", "quiet", "bedroom", "drywall", "plasterboard"],
+    "keyFeatures": [
+      "Used as a visible wall lining layer",
+      "Relevant to the bedroom noise-reduction scenario",
+      "Works as part of a complete wall concept rather than alone"
+    ],
+    "source": { "type": "fictional" }
+  },
+  {
+    "id": "prod-moisture-board",
+    "slug": "moisture-aware-interior-board",
+    "name": "Moisture-Aware Interior Board",
+    "category": "boards",
+    "shortDescription": "A fictional interior lining board used to explain moisture-conscious material selection for bathroom walls.",
+    "applications": ["interior-walls"],
+    "performanceNeeds": ["moisture-resistance"],
+    "tags": ["moisture", "humidity", "damp", "bathroom", "drywall", "plasterboard"],
+    "keyFeatures": [
+      "Used as a visible wall lining layer",
+      "Relevant to the bathroom moisture scenario",
+      "Represents a moisture-focused board choice in this prototype"
+    ],
+    "source": { "type": "fictional" }
+  },
+  {
+    "id": "prod-acoustic-insulation",
+    "slug": "acoustic-cavity-insulation",
+    "name": "Acoustic Cavity Insulation",
+    "category": "insulation",
+    "shortDescription": "A fictional cavity layer used to explain how an interior wall concept can respond to unwanted noise.",
+    "applications": ["interior-walls"],
+    "performanceNeeds": ["noise-reduction"],
+    "tags": ["sound", "noise", "quiet", "cavity", "infill", "insulation"],
+    "keyFeatures": [
+      "Positioned conceptually within the wall cavity",
+      "Relevant where acoustic comfort is the discovery priority",
+      "Presented as one part of a complete wall concept"
+    ],
+    "source": { "type": "fictional" }
+  },
+  {
+    "id": "prod-thermal-insulation",
+    "slug": "thermal-cavity-insulation",
+    "name": "Thermal Cavity Insulation",
+    "category": "insulation",
+    "shortDescription": "A fictional cavity layer used to connect thermal-comfort needs with an interior wall material concept.",
+    "applications": ["interior-walls"],
+    "performanceNeeds": ["thermal-comfort"],
+    "tags": ["warmth", "cold", "temperature", "thermal", "cavity", "insulation"],
+    "keyFeatures": [
+      "Positioned conceptually within the wall cavity",
+      "Relevant where thermal comfort is the discovery priority",
+      "Avoids project-specific performance or calculation claims"
+    ],
+    "source": { "type": "fictional" }
+  },
+  {
+    "id": "prod-wall-stud",
+    "slug": "interior-wall-stud",
+    "name": "Interior Wall Stud",
+    "category": "framing",
+    "shortDescription": "A fictional vertical framing component used to organize the layers of the prototype interior-wall systems.",
+    "applications": ["interior-walls"],
+    "performanceNeeds": [],
+    "tags": ["stud", "upright", "frame", "framing", "metal framing", "support"],
+    "keyFeatures": [
+      "Represents the vertical part of the wall frame",
+      "Creates the conceptual cavity between board layers",
+      "Shared across the guided wall scenarios"
+    ],
+    "source": { "type": "fictional" }
+  },
+  {
+    "id": "prod-wall-track",
+    "slug": "interior-wall-track",
+    "name": "Interior Wall Track",
+    "category": "framing",
+    "shortDescription": "A fictional horizontal framing component representing the head and base boundaries of an interior wall frame.",
+    "applications": ["interior-walls"],
+    "performanceNeeds": [],
+    "tags": ["track", "channel", "base", "head", "frame", "metal framing"],
+    "keyFeatures": [
+      "Represents the horizontal part of the wall frame",
+      "Works conceptually with vertical wall studs",
+      "Shared across the guided wall scenarios"
+    ],
+    "source": { "type": "fictional" }
+  },
+  {
+    "id": "prod-joint-compound",
+    "slug": "interior-joint-compound",
+    "name": "Interior Joint Compound",
+    "category": "finishing",
+    "shortDescription": "A fictional finishing material used to explain the treatment of joints between interior lining boards.",
+    "applications": ["interior-walls"],
+    "performanceNeeds": [],
+    "tags": ["joint", "seam", "finish", "filler", "compound", "board joints"],
+    "keyFeatures": [
+      "Represents part of the board-joint finishing stage",
+      "Paired conceptually with interior joint tape",
+      "Included to show that the system extends beyond its main layers"
+    ],
+    "source": { "type": "fictional" }
+  },
+  {
+    "id": "prod-joint-tape",
+    "slug": "interior-joint-tape",
+    "name": "Interior Joint Tape",
+    "category": "finishing",
+    "shortDescription": "A fictional finishing material representing the tape used as part of treating joints between lining boards.",
+    "applications": ["interior-walls"],
+    "performanceNeeds": [],
+    "tags": ["tape", "joint", "seam", "finish", "board joints"],
+    "keyFeatures": [
+      "Represents part of the board-joint finishing stage",
+      "Paired conceptually with interior joint compound",
+      "Shared across the guided wall scenarios"
+    ],
+    "source": { "type": "fictional" }
+  }
+]
+
