@@ -1,0 +1,103 @@
+[
+  {
+    "id": "scenario-bedroom-noise",
+    "slug": "bedroom-quieter-interior-wall",
+    "room": "bedroom",
+    "element": "interior-wall",
+    "need": "reduce-noise",
+    "title": "A quieter bedroom interior wall",
+    "summary": "See how lining boards, cavity insulation, and framing work together in a simplified wall concept where reducing transferred noise is the priority.",
+    "performancePriorities": [
+      "Reduce paths for transferred noise",
+      "Treat the wall as a complete layered system",
+      "Keep the bedroom-facing surface practical to finish"
+    ],
+    "layers": [
+      {
+        "id": "bedroom-facing-board",
+        "name": "Acoustic lining board",
+        "materialRole": "Forms the visible bedroom-side face",
+        "explanation": "This fictional board represents a lining selected when acoustic comfort is the main discovery priority.",
+        "productIds": ["prod-acoustic-board"]
+      },
+      {
+        "id": "wall-cavity-insulation",
+        "name": "Cavity insulation",
+        "materialRole": "Occupies the space inside the frame",
+        "explanation": "This fictional infill represents a cavity layer chosen as part of the noise-focused wall concept.",
+        "productIds": ["prod-acoustic-insulation"]
+      },
+      {
+        "id": "metal-frame",
+        "name": "Metal framing",
+        "materialRole": "Organizes and separates the wall faces",
+        "explanation": "Studs and tracks form the simplified supporting framework and create space for the cavity layer.",
+        "productIds": ["prod-wall-stud", "prod-wall-track"]
+      },
+      {
+        "id": "opposite-side-board",
+        "name": "Opposite-side lining board",
+        "materialRole": "Closes the other face of the wall",
+        "explanation": "A second lining face completes the simplified layered wall concept; final selection depends on the adjoining space.",
+        "productIds": ["prod-standard-board"]
+      }
+    ],
+    "recommendations": [
+      { "productId": "prod-acoustic-board", "reason": "Recommended because this bedroom scenario prioritizes a lining associated with acoustic comfort." },
+      { "productId": "prod-acoustic-insulation", "reason": "Recommended because the scenario includes a cavity layer to support its noise-reduction goal." },
+      { "productId": "prod-wall-stud", "reason": "Recommended because the frame organizes the wall faces and creates the cavity shown in this concept." },
+      { "productId": "prod-standard-board", "reason": "Recommended as the simplified opposite-side lining; the adjoining room may require a different final choice." }
+    ]
+  },
+  {
+    "id": "scenario-bathroom-moisture",
+    "slug": "bathroom-moisture-aware-interior-wall",
+    "room": "bathroom",
+    "element": "interior-wall",
+    "need": "manage-moisture",
+    "title": "A moisture-aware bathroom interior wall",
+    "summary": "See how a moisture-focused lining, framing, and an opposite wall face form a simplified bathroom wall concept.",
+    "performancePriorities": [
+      "Choose a bathroom-facing lining with moisture in mind",
+      "Keep the wall build-up understandable",
+      "Treat final selection as project-specific"
+    ],
+    "layers": [
+      {
+        "id": "bathroom-facing-board",
+        "name": "Moisture-aware lining board",
+        "materialRole": "Forms the visible bathroom-side face",
+        "explanation": "This fictional board represents a moisture-conscious lining choice for the bathroom side of the wall.",
+        "productIds": ["prod-moisture-board"]
+      },
+      {
+        "id": "metal-frame",
+        "name": "Metal framing",
+        "materialRole": "Organizes and separates the wall faces",
+        "explanation": "Studs and tracks form the simplified supporting framework between the wall faces.",
+        "productIds": ["prod-wall-stud", "prod-wall-track"]
+      },
+      {
+        "id": "opposite-side-board",
+        "name": "Opposite-side lining board",
+        "materialRole": "Closes the wall from the adjoining space",
+        "explanation": "A general lining represents the opposite face; its final type should reflect the conditions in that room.",
+        "productIds": ["prod-standard-board"]
+      },
+      {
+        "id": "board-joint-finish",
+        "name": "Board-joint finishing",
+        "materialRole": "Represents treatment where lining boards meet",
+        "explanation": "Compound and tape show that a finished wall includes joint treatment as well as its main layers.",
+        "productIds": ["prod-joint-compound", "prod-joint-tape"]
+      }
+    ],
+    "recommendations": [
+      { "productId": "prod-moisture-board", "reason": "Recommended because the bathroom-facing layer is selected with moisture exposure in mind in this prototype." },
+      { "productId": "prod-wall-stud", "reason": "Recommended because the frame organizes the two wall faces in the simplified system." },
+      { "productId": "prod-standard-board", "reason": "Recommended as the adjoining-room face; its final suitability depends on that room's conditions." },
+      { "productId": "prod-joint-compound", "reason": "Included to connect the main wall layers with the board-joint finishing stage." }
+    ]
+  }
+]
+

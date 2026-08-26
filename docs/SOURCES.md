@@ -28,6 +28,7 @@ The Phase 2 catalogue contains nine fictional products. All names, descriptions,
 | Item or range | Classification | Source | How used | Notes |
 | --- | --- | --- | --- | --- |
 | MVP catalogue (nine products) | Fictional | Not applicable | Catalogue, product details, and future deterministic scenarios | Original generic names and restrained wording; no manufacturer affiliation |
+| Bedroom noise and bathroom moisture scenarios | Fictional | General concepts limited to the educational sources below | Deterministic guided discovery and future wall-layer explanation | Original simplified wording; not certified assemblies or project specifications |
 
 ## Educational/domain sources
 
