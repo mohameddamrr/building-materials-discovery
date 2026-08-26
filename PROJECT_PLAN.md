@@ -2,7 +2,7 @@
 
 ## Document status
 
-- Current phase: Phase 7 - Accessibility, responsiveness, and edge cases
+- Current phase: Phase 9 - Documentation and submission polish
 - Phase status: Completed
 - Last updated: 2026-08-26
 - Working title: Material Pathways (placeholder; not approved branding)
@@ -320,8 +320,8 @@ The project will not optimize for an arbitrary coverage percentage.
 | 5. Construction understanding experience | One polished accessible wall solution and product path, strengthened with licensed context/material photos and an interactive cutaway | Completed |
 | 6. Additional curated scenarios | Reuse architecture for three complete scenarios and dependent room/problem discovery | Completed |
 | 7. Accessibility, responsiveness, edge cases | Deliberate QA and recovery pass | Completed |
-| 8. Tests and technical review | Typecheck, lint, tests, builds, focused fixes | Not started |
-| 9. Documentation and submission polish | Complete README, sources, plan, screenshots, final checks | Not started |
+| 8. Tests and technical review | Typecheck, lint, tests, builds, focused fixes | Completed |
+| 9. Documentation and submission polish | Complete README, sources, plan, screenshots, final checks | Completed |
 
 Every phase has an approval gate. Checks, Git status, diff summary, review findings, and a proposed commit message will be shown before asking whether to commit. A commit never implies permission to push.
 
@@ -347,7 +347,7 @@ Future possibilities, explicitly outside the MVP, include additional building el
 
 The next guided-discovery expansion is designed as a data extension rather than a new frontend architecture. A future journey can ask for a building element (wall, roof, ceiling, or floor), then position (interior or exterior), then a familiar need (noise, moisture, thermal comfort, fire, or finish). The matching scenario would provide the same outputs already supported by the current model: a plain-language explanation, ordered construction layers, educational priorities, recommended product IDs, and stored recommendation reasons. The MVP only exposes supported interior-wall combinations; unsupported combinations remain unavailable or return a clear recovery state until they are curated and reviewed.
 
-Phase 9 submission polish should revisit original lightweight SVG/CSS category visuals for product cards and details. Real photography is limited to generic room/material education and must never imply that a fictional catalogue product is the photographed item. The guided solution uses a hybrid: properly licensed representative photos for recognition plus an original interactive SVG for spatial explanation.
+Phase 9 submission polish uses purpose-made original editorial visuals across the catalogue and guided journeys. These images are illustrative and must never imply that a fictional catalogue product is the photographed item. The interactive wall explanation remains an original accessible HTML/CSS/SVG-style visual, with image provenance and content limitations recorded in `docs/SOURCES.md`.
 
 A production evolution could add schema validation at data ingestion, caching, observability, security headers/rate controls, content governance, deployment automation, and a database or external product-information service. These are evolutionary options, not prerequisites for the take-home.
 
