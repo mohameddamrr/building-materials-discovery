@@ -9,6 +9,20 @@ It combines two complementary journeys:
 
 The guiding flow is **discover → understand → recommend → explore product**.
 
+## Product walkthrough
+
+The repository includes screenshots of the key experience states:
+
+![Home](docs/screenshots/01-home.png)
+
+![Guided discovery](docs/screenshots/02-discovery.png)
+
+![Product catalogue](docs/screenshots/03-products.png)
+
+![Product detail](docs/screenshots/04-product-detail.png)
+
+![Solution guide](docs/screenshots/05-solution.png)
+
 ## MVP scope
 
 The prototype focuses on interior wall systems and a deliberately small, curated dataset:
