@@ -23,6 +23,18 @@ export function ProductDetailPage() {
         <section className="rounded-2xl bg-white p-6 shadow-sm"><h2 className="text-xl font-bold text-slate-950">Where it is used</h2><ul className="mt-5 space-y-3">{product.applications.map((application) => <li className="flex gap-3 text-slate-700" key={application}><span className="mt-2 size-2 shrink-0 rounded-full bg-amber-400" />{applicationLabels[application]}</li>)}</ul></section>
         <section className="rounded-2xl bg-[#101820] p-6 text-white"><h2 className="text-xl font-bold">System role</h2><p className="mt-5 leading-7 text-slate-300">This product represents one material within a complete interior-wall concept. Its suitability depends on the wider system and project requirements.</p></section>
       </div>
+      <section className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-6" aria-labelledby="product-at-a-glance">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div><p className="text-sm font-bold uppercase tracking-[0.18em] text-amber-700">At a glance</p><h2 className="mt-2 text-2xl font-bold text-slate-950" id="product-at-a-glance">What this material brings to the system</h2></div>
+          <span className="rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-slate-600">{product.applications.length} application{product.applications.length === 1 ? "" : "s"}</span>
+        </div>
+        <div className="mt-5 grid gap-3 sm:grid-cols-3">
+          <div className="rounded-xl bg-white p-4"><p className="text-xs font-bold uppercase tracking-wide text-slate-500">Category</p><p className="mt-2 font-bold text-slate-950">{categoryLabels[product.category]}</p></div>
+          <div className="rounded-xl bg-white p-4"><p className="text-xs font-bold uppercase tracking-wide text-slate-500">Best for</p><p className="mt-2 font-bold text-slate-950">{product.performanceNeeds.length > 0 ? performanceNeedLabels[product.performanceNeeds[0]] : "General build-up"}</p></div>
+          <div className="rounded-xl bg-white p-4"><p className="text-xs font-bold uppercase tracking-wide text-slate-500">System fit</p><p className="mt-2 font-bold text-slate-950">Interior wall concept</p></div>
+        </div>
+        {product.tags.length > 0 && <div className="mt-5 flex flex-wrap gap-2" aria-label="Product tags">{product.tags.map((tag) => <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-sm font-semibold text-slate-600" key={tag}>#{tag}</span>)}</div>}
+      </section>
       <section className="mt-5 rounded-2xl bg-white p-6 shadow-sm"><p className="text-sm font-bold uppercase tracking-[0.18em] text-amber-700">What to know</p><h2 className="mt-2 text-2xl font-bold text-slate-950">Key features</h2><ul className="mt-6 grid gap-4 sm:grid-cols-2">{product.keyFeatures.map((feature, index) => <li className="rounded-xl bg-[#f4f1eb] p-4 text-slate-700" key={feature}><span className="text-sm font-black text-amber-700">0{index + 1}</span><p className="mt-2 leading-6">{feature}</p></li>)}</ul></section>
       <aside className="mt-5 rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm leading-6 text-amber-950" aria-label="Product data source">{product.source.type === "fictional" ? <p>Fictional product created for this prototype. It is not affiliated with a manufacturer.</p> : <p>Product information is based on a <a className="font-semibold underline" href={product.source.url}>public source</a>.</p>}</aside>
     </article>

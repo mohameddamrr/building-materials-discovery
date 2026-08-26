@@ -40,7 +40,6 @@ describe("DiscoverPage", () => {
     const wall = await screen.findByRole("button", { name: /Walls.*Available/ });
     expect(screen.getByRole("button", { name: /Roof.*Coming soon/ })).toBeInTheDocument();
     expect(screen.queryByRole("button", { name: /Improve thermal comfort/ })).not.toBeInTheDocument();
-    expect(screen.queryByRole("button", { name: "Show my wall solution" })).not.toBeInTheDocument();
 
     await user.click(wall);
     expect(screen.getByRole("heading", { name: "Where is the wall?" })).toHaveFocus();
@@ -51,8 +50,6 @@ describe("DiscoverPage", () => {
     expect(screen.getByRole("heading", { name: /What would you like to improve/ })).toHaveFocus();
     expect(screen.getByRole("button", { name: /Reduce noise between spaces/ })).toBeInTheDocument();
     await user.click(screen.getByRole("button", { name: /Improve thermal comfort/ }));
-    await user.click(screen.getByRole("button", { name: "Show my wall solution" }));
-
     expect(await screen.findByText("Location: /solutions/bedroom-thermal-comfort-interior-wall")).toBeInTheDocument();
     expect(vi.mocked(fetch)).toHaveBeenCalledWith(
       "/api/recommendations?room=bedroom&need=improve-thermal-comfort",
@@ -68,15 +65,11 @@ describe("DiscoverPage", () => {
     await user.click(await screen.findByRole("button", { name: /Walls.*Available/ }));
     await user.click(screen.getByRole("button", { name: /Interior.*Available/ }));
     await user.click(screen.getByRole("button", { name: /Bedroom.*2 problems/ }));
-    await user.click(screen.getByRole("button", { name: /Improve thermal comfort/ }));
-    expect(screen.getByRole("button", { name: "Show my wall solution" })).toBeEnabled();
-
     await user.click(screen.getByRole("button", { name: "← Back to room selection" }));
     await user.click(screen.getByRole("button", { name: /Bathroom.*1 problem/ }));
 
     expect(screen.queryByRole("button", { name: /Improve thermal comfort/ })).not.toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Manage moisture/ })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Show my wall solution" })).toBeDisabled();
   });
 
   it("announces recommendation loading and prevents duplicate changes", async () => {
@@ -93,11 +86,8 @@ describe("DiscoverPage", () => {
     await user.click(screen.getByRole("button", { name: /Interior.*Available/ }));
     await user.click(screen.getByRole("button", { name: /Bedroom.*2 problems/ }));
     await user.click(screen.getByRole("button", { name: /Improve thermal comfort/ }));
-    await user.click(screen.getByRole("button", { name: "Show my wall solution" }));
-
     expect(screen.getByRole("status")).toHaveTextContent("Finding A thermal-comfort bedroom interior wall");
     expect(screen.getByRole("button", { name: "← Back to room selection" })).toBeDisabled();
-    expect(screen.getByRole("button", { name: "Opening your solution..." })).toBeDisabled();
 
     resolveRecommendation(response({ scenario: resolvedThermalScenario() }));
     expect(await screen.findByText("Location: /solutions/bedroom-thermal-comfort-interior-wall")).toBeInTheDocument();
@@ -118,13 +108,11 @@ describe("DiscoverPage", () => {
     await user.click(screen.getByRole("button", { name: /Interior.*Available/ }));
     await user.click(screen.getByRole("button", { name: /Bedroom.*2 problems/ }));
     await user.click(screen.getByRole("button", { name: /Improve thermal comfort/ }));
-    await user.click(screen.getByRole("button", { name: "Show my wall solution" }));
-
     expect(await screen.findByRole("alert")).toHaveTextContent("Your choices are preserved");
     expect(screen.getByRole("heading", { name: /4\. What would you like to improve/ })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Improve thermal comfort/ })).toHaveAttribute("aria-pressed", "true");
 
-    await user.click(screen.getByRole("button", { name: "Show my wall solution" }));
+    await user.click(screen.getByRole("button", { name: /Improve thermal comfort/ }));
     expect(await screen.findByText("Location: /solutions/bedroom-thermal-comfort-interior-wall")).toBeInTheDocument();
     expect(recommendationAttempts).toBe(2);
   });

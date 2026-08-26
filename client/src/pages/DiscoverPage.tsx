@@ -79,20 +79,25 @@ export function DiscoverPage() {
     setStep(3);
   }
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (element !== "wall" || position !== "interior" || !room || !need || submitStatus === "loading") return;
+  async function openSolution(selectedNeed: UserNeed) {
+    if (element !== "wall" || position !== "interior" || !room || submitStatus === "loading") return;
     requestController.current?.abort();
     const controller = new AbortController();
     requestController.current = controller;
     setSubmitStatus("loading");
     try {
-      const recommendation = await getRecommendation(room, need, controller.signal);
+      const recommendation = await getRecommendation(room, selectedNeed, controller.signal);
       navigate(`/solutions/${recommendation.slug}`);
     } catch (error) {
       if (error instanceof DOMException && error.name === "AbortError") return;
       setSubmitStatus(error instanceof ApiError && error.status === 404 ? "unsupported" : "error");
     }
+  }
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!need) return;
+    await openSolution(need);
   }
 
   if (status === "loading") return <p role="status" className="rounded-sm border border-slate-200 bg-white p-5">Loading guided choices...</p>;
@@ -190,7 +195,7 @@ export function DiscoverPage() {
                 const selected = need === scenario.need;
                 const image = problemImages[scenario.need];
                 return (
-                  <button aria-pressed={selected} className={`group relative min-h-72 overflow-hidden rounded-sm border-4 bg-slate-950 text-left text-white shadow-sm outline-offset-4 motion-safe:transition-transform motion-safe:hover:-translate-y-1 focus-visible:outline-4 focus-visible:outline-amber-500 ${selected ? "border-amber-500" : "border-transparent hover:border-amber-300"}`} disabled={submitStatus === "loading"} key={scenario.slug} onClick={() => { setNeed(scenario.need); setSubmitStatus("idle"); }} type="button">
+                  <button aria-pressed={selected} className={`group relative min-h-72 overflow-hidden rounded-sm border-4 bg-slate-950 text-left text-white shadow-sm outline-offset-4 motion-safe:transition-transform motion-safe:hover:-translate-y-1 focus-visible:outline-4 focus-visible:outline-amber-500 ${selected ? "border-amber-500" : "border-transparent hover:border-amber-300"}`} disabled={submitStatus === "loading"} key={scenario.slug} onClick={() => { setNeed(scenario.need); void openSolution(scenario.need); }} type="button">
                     <img alt="" className="absolute inset-0 size-full object-cover opacity-65 motion-safe:transition-transform motion-safe:group-hover:scale-[1.03]" height={image.height} loading="lazy" src={image.src} width={image.width} />
                     <span aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/65 to-transparent" />
                     <span className="absolute inset-x-0 bottom-0 block p-6"><span className="flex items-start justify-between gap-3"><span className="text-xl font-bold">{userNeedLabels[scenario.need]}</span>{selected && <span className="rounded-full bg-amber-500 px-3 py-1 text-xs font-bold text-slate-950">Selected</span>}</span><span className="mt-3 block text-sm leading-6 text-slate-200">{scenario.summary}</span></span>

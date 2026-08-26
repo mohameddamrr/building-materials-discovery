@@ -47,7 +47,7 @@ describe("ProductDetailPage", () => {
     renderPage();
 
     expect(await screen.findByRole("heading", { level: 1, name: product.name })).toBeInTheDocument();
-    expect(screen.getByText("Noise reduction")).toBeInTheDocument();
+    expect(screen.getAllByText("Noise reduction")).toHaveLength(2);
     expect(screen.getByText("Works as part of a complete wall concept")).toBeInTheDocument();
     expect(screen.getByText(/Fictional product created for this prototype/)).toBeInTheDocument();
   });
@@ -75,4 +75,3 @@ describe("ProductDetailPage", () => {
     expect(await screen.findByRole("heading", { level: 1, name: product.name })).toBeInTheDocument();
   });
 });
-
